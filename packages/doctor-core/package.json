@@ -1,0 +1,11 @@
+{
+  "name": "doctor-core",
+  "version": "0.0.1",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch --preserveWatchOutput"
+  }
+}
