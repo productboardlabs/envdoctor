@@ -4,8 +4,19 @@
   "files": [
     "lib"
   ],
+  "engines": {
+    "node": ">=7.5.0"
+  },
+  "bin": {
+    "doctor": "lib/cli.js"
+  },
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc --watch --preserveWatchOutput"
+  },
+  "dependencies": {
+    "cosmiconfig": "^5.0.7",
+    "listr": "^0.14.2",
+    "ora": "^3.0.0"
   }
 }

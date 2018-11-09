@@ -1,0 +1,16 @@
+{
+  "name": "doctor-config-essentials",
+  "version": "0.0.1",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:watch": "tsc --watch --preserveWatchOutput"
+  },
+  "dependencies": {
+    "execa": "^1.0.0",
+    "semver": "^5.6.0"
+  }
+}

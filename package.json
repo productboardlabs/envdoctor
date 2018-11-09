@@ -9,10 +9,9 @@
     "build:watch": "lerna run --parallel tsc:watch"
   },
   "devDependencies": {
-    "@jukben/eslint-config": "^0.0.5",
     "@types/node": "^10.12.2",
-    "eslint": "^5.8.0",
     "lerna": "^2.11.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.1.6",
+    "typescript-eslint-parser": "^20.1.1"
   }
 }

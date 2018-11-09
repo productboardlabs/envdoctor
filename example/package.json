@@ -1,0 +1,14 @@
+{
+  "name": "example-with-doctor",
+  "private": true,
+  "scripts": {
+    "doctor": "doctor"
+  },
+  "devDependencies": {
+    "doctor-config-essentials": "../packages/doctor-config-essentials",
+    "doctor-core": "../packages/doctor-core"
+  },
+  "dependencies": {
+    "execa": "^1.0.0"
+  }
+}
