@@ -1,7 +1,9 @@
 import runner from "./runner";
-import config from "./config";
+import mainConfig from "./config";
+import { definitionParser } from "./utils";
+import { mergeAll, compose, values } from "ramda";
 
-if (!config) {
+if (!mainConfig) {
   console.log("config not found!");
 }
 
@@ -14,39 +16,37 @@ export interface Implementations {
 }
 
 export enum SEVERITY {
-  OK,
+  OFF,
   WARN,
   ERROR
 }
 
 const rules: IRules = {};
-const implementation: Implementations = {};
-
 const alreadyParsedPackages: string[] = [];
 
-function getAllExtendedRules(configuration?: string) {
-  let _config: IConfig;
+function getAllExtendedRules(configuration: string | IConfig = mainConfig) {
+  let config: IConfig;
 
   if (configuration) {
-    if (alreadyParsedPackages.includes(configuration)) {
-      return;
-    }
-
-    alreadyParsedPackages.push(configuration);
-
     if (typeof configuration === "string") {
-      _config = require(`../../${configuration}`);
-      if (_config.__esModule) {
-        _config = _config.default;
+      if (alreadyParsedPackages.includes(configuration)) {
+        return;
+      }
+
+      alreadyParsedPackages.push(configuration);
+
+      config = require(`../../${configuration}`);
+      if (config.__esModule) {
+        config = config.default;
       }
     } else if (typeof configuration === "object") {
-      _config = configuration;
+      config = configuration;
     }
   } else {
-    _config = { ...config };
+    config = { ...config };
   }
 
-  let { extends: e, rules: r } = _config;
+  let { extends: e, rules: r } = config;
 
   if (e) {
     if (!Array.isArray(e)) {
@@ -58,20 +58,39 @@ function getAllExtendedRules(configuration?: string) {
 
   if (r) {
     Object.entries(r).map(([name, definition]) => {
-      if (typeof definition === "function") {
-        if (!implementation[name]) {
-          implementation[name] = [];
-        }
-        implementation[name].unshift(definition);
-      } else {
-        if (!rules[name]) {
-          rules[name] = [];
-        }
-        rules[name].unshift(definition);
+      if (!rules[name]) {
+        rules[name] = [];
       }
+
+      if (typeof definition === "function") {
+        definition = [2, undefined, definition];
+      }
+
+      if (!Array.isArray(definition)) {
+        definition = [definition];
+      }
+
+      rules[name].push(definition);
     });
   }
 }
 
 getAllExtendedRules();
-runner(rules, implementation);
+
+const normalizedRules = Object.entries(rules).map(([name, definitions]) => {
+  const definition = (compose(
+    values,
+    mergeAll
+  )(definitions) as unknown) as [number, any, IFunctionRule];
+
+  if (!definition) {
+    throw new Error(`Definition for rule "${name}" hasn't been found`);
+  }
+
+  return [name, definitionParser(definition)] as [
+    string,
+    [number, any, IFunctionRule]
+  ];
+});
+
+runner(normalizedRules);

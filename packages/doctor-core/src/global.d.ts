@@ -1,15 +1,13 @@
-declare enum SEVERITY {
-  OK,
-  WARN,
-  ERROR
-}
-
 interface IFunctionRule {
   (parameters: any): boolean | string;
-  description?: string;
+  description?: string | ((any) => string);
 }
 
-type Rule = SEVERITY | boolean | string | [SEVERITY, any, IFunctionRule];
+type Rule =
+  | boolean
+  | number
+  | string
+  | [boolean | number | string, any?, IFunctionRule?];
 
 interface IConfig {
   __esModule?: boolean;

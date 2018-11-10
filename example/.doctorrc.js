@@ -1,6 +1,14 @@
 module.exports = {
   extends: ["doctor-config-essentials", require("./custom")],
   rules: {
+    "yarn-version": "on",
+    "just-test": [
+      1,
+      null,
+      () => {
+        return "Almost passed! :)";
+      }
+    ],
     redis: [
       2,
       {

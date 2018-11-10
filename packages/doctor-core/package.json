@@ -15,8 +15,13 @@
     "tsc:watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
+    "@sindresorhus/is": "^0.13.0",
     "cosmiconfig": "^5.0.7",
     "listr": "^0.14.2",
-    "ora": "^3.0.0"
+    "ora": "^3.0.0",
+    "ramda": "^0.25.0"
+  },
+  "devDependencies": {
+    "@types/ramda": "^0.25.41"
   }
 }

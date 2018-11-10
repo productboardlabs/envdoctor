@@ -8,6 +8,6 @@ const testPort = async ({ host, port, name }) => {
   }
 };
 
-testPort.description = "Check if port is available";
+testPort.description = ({ port }) => `Check if port (${port}) is available`;
 
 module.exports = testPort;

@@ -1,98 +1,53 @@
 import * as ora from "ora";
-import { Implementations, IRules, SEVERITY } from "./index";
+import { SEVERITY } from "./index";
+import is from "@sindresorhus/is";
 
-function parseConfig(config: Rule[]): [SEVERITY, any?] {
-  if (typeof config === "boolean") {
-    return [config ? 2 : 0];
+function getDescription(rule: [string, [number, any, IFunctionRule]]) {
+  const [name, [, parameters, fn]] = rule;
+
+  if (fn.description) {
+    return typeof fn.description === "function"
+      ? fn.description(parameters)
+      : fn.description;
   }
 
-  if (typeof config === "number") {
-    return [config > 2 && config < 0 ? 2 : config];
-  }
-
-  if (typeof config === "string") {
-    if (config === "warn") {
-      return [1];
-    }
-    if (config === "error" || config === "on") {
-      return [2];
-    }
-    if (config === "off") {
-      return [0];
-    }
-  }
-
-  if (Array.isArray(config)) {
-    let winingConfig: Rule | Rule[] = config;
-    if (Array.isArray(config[0])) {
-      winingConfig = config[0];
-    }
-
-    let severity = 2;
-    const parameters = winingConfig[1];
-
-    if (typeof winingConfig[0] === "number") {
-      severity =
-        winingConfig[0] > 2 && winingConfig[0] < 0 ? 2 : winingConfig[0];
-    }
-
-    if (typeof winingConfig[0] === "boolean") {
-      severity = winingConfig[0] ? 2 : 0;
-    }
-
-    if (typeof winingConfig[0] === "string") {
-      if (winingConfig[0] === "warn") {
-        severity = 1;
-      } else if (winingConfig[0] === "error" || winingConfig[0] === "on") {
-        severity = 2;
-      } else if (winingConfig[0] === "off") {
-        severity = 2;
-      }
-    }
-
-    return [severity, parameters];
-  }
-
-  return [2];
+  return name;
 }
 
-export default function runner(rules: IRules, implementation: Implementations) {
-  const rulesToRun = Object.entries(implementation)
-    .map(([name, [fn]]) => {
-      const config = parseConfig(rules[name]);
+export default function runner(
+  rules: Array<[string, [number, any, IFunctionRule]]>
+) {
+  rules
+    .filter(
+      ([, [severity, , fn]]) => severity !== SEVERITY.OFF && fn !== undefined
+    )
+    .forEach(async rule => {
+      const [name, [severity, parameters, fn]] = rule;
+      const spinner = ora(fn.description).start();
+      let status;
+      try {
+        status = await fn(parameters);
+      } catch (e) {
+        spinner.info(`Rule "${name}" has thrown an error: "${e}"`);
+        return;
+      }
 
-      return { name, config, fn };
-    })
-    .filter(({ config: [severity] }) => severity)
-    .map(({ name, config, fn }) => {
-      const [severity, parameters] = config;
+      if (is.string(status) || status === false || status === 0) {
+        let message = getDescription(rule);
+        if (is.string(status)) {
+          message += `: ${status}`;
+        }
 
-      return {
-        name,
-        fn,
-        parameters,
-        severity
-      };
+        switch (severity) {
+          case SEVERITY.WARN:
+            spinner.warn(message);
+            break;
+          default:
+            spinner.fail(message);
+            break;
+        }
+      } else {
+        spinner.succeed();
+      }
     });
-
-  rulesToRun.forEach(async run => {
-    const spinner = ora(run.fn.description).start();
-    let status;
-    try {
-      status = await run.fn(run.parameters);
-    } catch (e) {
-      spinner.info(`Rule "${run.name}" has thrown an error: "${e}"`);
-      return;
-    }
-    if (typeof status === "string" || status == false) {
-      if (run.severity === SEVERITY.ERROR) {
-        spinner.fail(run.fn.description + ": " + status);
-      }
-      if (run.severity === SEVERITY.WARN) {
-        spinner.warn(run.fn.description + ": " + status);
-      }
-    } else {
-      spinner.succeed();
-    }
-  });
 }
