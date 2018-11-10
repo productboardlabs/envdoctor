@@ -35,7 +35,18 @@ function getAllExtendedRules(configuration: string | IConfig = mainConfig) {
 
       alreadyParsedPackages.push(configuration);
 
-      config = require(`../../${configuration}`);
+      try {
+        // let's try pre-scoped package first
+        config = require(`../../envdoctor-config-${configuration}`);
+      } catch (e) {
+        try {
+          // then fallback to full name package
+          config = require(`../../${configuration}`);
+        } catch (e) {
+          throw new Error(`Configuration "${configuration}" doesn't found`);
+        }
+      }
+
       if (config.__esModule) {
         config = config.default;
       }
