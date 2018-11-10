@@ -1,5 +1,7 @@
 # envdoctor
 
+> ⚠️ This is very early stage of the project. I've putted it together literally in few hours. Use on your own risk.
+
 This is framework how to easily create set of test to ensure that environment is correctly setup.
 
 It's kinda something like ESLint but to test your environment.
@@ -66,16 +68,16 @@ extends: `["essentials", require("./doctor")]`. See `/example` implementation fo
 Every defined rule is automatically checked. You can change this with syntax
 
 ```
- "yarn-version": 0, // disable rule; [0], "off", "disable" act the same
+ "yarn-version": 0, // disable rule; [0], "off", "disable" acts the same
 ```
 
 or you can change severity of the rule to "warn" by
 
 ```
- "yarn-version": [1, "1.9.0"], // you can also use "warn", ["warn] act the same
+ "yarn-version": [1, "1.9.0"], // you can also use "warn", ["warn] acts the same
 ```
 
-### Implementation of your own rule
+## Implementation of your own rule
 
 This is actually really similar as example above
 
@@ -94,6 +96,10 @@ rules {
 }
 ```
 
-> static `description` filed could be also an function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
+> static `description` field could be also an function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
 
 As you can see, if the function returns string, it means the check failed and the string is used as reason. To pass the check please return undefined, or boolean / true.
+
+## Implementation of your own configuration
+
+Configuration is basically JSON object which defines the rules. Check the `envdoctor-config-essentials` implementation for example.
