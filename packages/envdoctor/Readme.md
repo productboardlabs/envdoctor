@@ -91,7 +91,7 @@ ownRuleImplementation.description = "This is just example"
 ...
 
 rules {
- "own-rule": [2, "hello", ownRuleImplementation],
+ "own-rule": [2, "World", ownRuleImplementation],
  ...
 }
 ```
