@@ -1,7 +1,7 @@
 module.exports = {
   extends: ["essentials", require("./doctor")],
   rules: {
-    "yarn-version": "on",
+    "yarn-version": [2, "1.9.0"],
     "just-test": [
       1,
       null,

@@ -1,6 +1,6 @@
 {
   "name": "envdoctor",
-  "description": "Essentials rules for Envdoctor",
+  "description": "Essentials checks for envdoctor",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
   "private": true,

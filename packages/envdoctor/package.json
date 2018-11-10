@@ -1,7 +1,7 @@
 {
-  "name": "envdoctor-core",
+  "name": "envdoctor",
   "version": "0.0.1",
-  "description": "Framework for various tests in the current environment",
+  "description": "The framework for various tests / checks in the current environment",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
   "files": [

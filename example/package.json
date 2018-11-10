@@ -6,7 +6,7 @@
   },
   "devDependencies": {
     "envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
-    "envdoctor-core": "../packages/envdoctor-core"
+    "envdoctor": "../packages/envdoctor"
   },
   "dependencies": {
     "execa": "^1.0.0"
