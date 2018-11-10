@@ -1,6 +1,9 @@
 {
   "name": "envdoctor-core",
   "version": "0.0.1",
+  "description": "Framework for various tests in the current environment",
+  "license": "MIT",
+  "author": "Jakub Benes <jukben@gmail.com>",
   "files": [
     "lib"
   ],

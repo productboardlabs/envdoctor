@@ -4,7 +4,7 @@ import { definitionParser } from "./utils";
 import { mergeAll, compose, values } from "ramda";
 
 if (!mainConfig) {
-  console.log("config not found!");
+  console.log("Config not found. Does '.doctorrc' exists?");
 }
 
 export interface IRules {
