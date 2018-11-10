@@ -10,6 +10,7 @@
   "scripts": {
     "build": "lerna run --parallel tsc",
     "build:watch": "lerna run --parallel tsc:watch",
+    "prepublish": "lerna run --parallel tsc",
     "test": "jest",
     "test:watch": "jest --watch"
   },
