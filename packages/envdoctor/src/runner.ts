@@ -23,7 +23,9 @@ export default function runner(
     )
     .forEach(async rule => {
       const [name, [severity, parameters, fn]] = rule;
-      const spinner = ora(fn.description).start();
+      let message = getDescription(rule);
+
+      const spinner = ora(message).start();
       let status;
       try {
         status = await fn(parameters);
@@ -33,7 +35,6 @@ export default function runner(
       }
 
       if (is.string(status) || status === false || status === 0) {
-        let message = getDescription(rule);
         if (is.string(status)) {
           message += `: ${status}`;
         }
