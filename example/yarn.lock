@@ -176,21 +176,6 @@ defaults@^1.0.3:
   dependencies:
     clone "^1.0.2"
 
-doctor-config-essentials@../packages/doctor-config-essentials:
-  version "0.0.1"
-  dependencies:
-    execa "^1.0.0"
-    semver "^5.6.0"
-
-doctor-core@../packages/doctor-core:
-  version "0.0.1"
-  dependencies:
-    "@sindresorhus/is" "^0.13.0"
-    cosmiconfig "^5.0.7"
-    listr "^0.14.2"
-    ora "^3.0.0"
-    ramda "^0.25.0"
-
 elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
@@ -202,6 +187,21 @@ end-of-stream@^1.1.0:
   integrity sha512-1MkrZNvWTKCaigbn+W15elq2BB/L22nqrSY5DKlo3X6+vclJm8Bb5djXJBmEX6fS3+zCh/F4VBK5Z2KxJt4s2Q==
   dependencies:
     once "^1.4.0"
+
+envdoctor-config-essentials@../packages/envdoctor-config-essentials:
+  version "0.0.1"
+  dependencies:
+    execa "^1.0.0"
+    semver "^5.6.0"
+
+envdoctor-core@../packages/envdoctor-core:
+  version "0.0.1"
+  dependencies:
+    "@sindresorhus/is" "^0.13.0"
+    cosmiconfig "^5.0.7"
+    listr "^0.14.2"
+    ora "^3.0.0"
+    ramda "^0.25.0"
 
 error-ex@^1.3.1:
   version "1.3.2"

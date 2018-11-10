@@ -1,5 +1,5 @@
 {
-  "name": "doctor-config-essentials",
+  "name": "envdoctor-config-essentials",
   "version": "0.0.1",
   "files": [
     "lib"

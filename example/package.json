@@ -5,8 +5,8 @@
     "doctor": "doctor"
   },
   "devDependencies": {
-    "doctor-config-essentials": "../packages/doctor-config-essentials",
-    "doctor-core": "../packages/doctor-core"
+    "envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
+    "envdoctor-core": "../packages/envdoctor-core"
   },
   "dependencies": {
     "execa": "^1.0.0"

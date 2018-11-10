@@ -1,5 +1,5 @@
 {
-  "name": "doctor",
+  "name": "envdoctor",
   "private": true,
   "workspaces": [
     "packages/*"

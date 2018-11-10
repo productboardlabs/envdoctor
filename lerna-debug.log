@@ -1,9 +1,9 @@
-0 silly input [ 'tsc' ]
+0 silly input [ 'tsc:watch' ]
 1 silly flags { _: [ 'run' ],
 1 silly flags   'reject-cycles': false,
 1 silly flags   rejectCycles: false,
 1 silly flags   parallel: true,
-1 silly flags   script: 'tsc',
+1 silly flags   script: 'tsc:watch',
 1 silly flags   args: [] }
 2 verbose rootPath /Users/jukben/Dev/doctor
 3 info version 2.11.0
@@ -11,17 +11,305 @@
 5 silly initialize attempt
 6 silly initialize success
 7 silly execute attempt
-8 info run in 1 package(s): npm run tsc
-9 silly runScriptInPackageStreaming [ 'tsc', [], undefined ]
-10 silly getExecOpts { cwd: '/Users/jukben/Dev/doctor/packages/doctor-core' }
-11 error execute callback with error
-12 error Error: Command failed: yarn run tsc
-12 error warning package.json: No license field
-12 error error Command failed with exit code 2.
-12 error
-12 error $ tsc
-12 error error TS5058: The specified path does not exist: '/Users/jukben/Dev/doctor/tsconfig.json'.
-12 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
-12 error
-12 error     at Promise.all.then.arr (/Users/jukben/Dev/doctor/node_modules/execa/index.js:236:11)
-12 error     at <anonymous>
+8 info run in 2 package(s): npm run tsc:watch
+9 silly runScriptInPackageStreaming [ 'tsc:watch', [], 'doctor-config-essentials' ]
+10 silly getExecOpts { cwd: '/Users/jukben/Dev/doctor/packages/doctor-config-essentials' }
+11 silly runScriptInPackageStreaming [ 'tsc:watch', [], 'doctor-core' ]
+12 silly getExecOpts { cwd: '/Users/jukben/Dev/doctor/packages/doctor-core' }
+13 error execute callback with error
+14 error Error: Command failed: yarn run tsc:watch
+14 error warning package.json: No license field
+14 error error Command failed with exit code 1.
+14 error
+14 error $ tsc --watch --preserveWatchOutput
+14 error
+14 error 19:17:54 - Starting compilation in watch mode...
+14 error
+14 error
+14 error 19:17:57 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:21:55 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS2304: Cannot find name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(17,7): error TS2322: Type 'Rule' is not assignable to type '[any, any, IFunctionRule]'.
+14 error   Type 'string' is not assignable to type '[any, any, IFunctionRule]'.
+14 error src/utils/definitionParser.ts(20,5): error TS2322: Type '[string | number | boolean]' is not assignable to type '[any, any, IFunctionRule]'.
+14 error   Property '1' is missing in type '[string | number | boolean]'.
+14 error
+14 error 19:21:55 - Found 4 errors. Watching for file changes.
+14 error
+14 error 19:22:02 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(17,22): error TS1005: ',' expected.
+14 error src/utils/definitionParser.ts(17,25): error TS1005: ',' expected.
+14 error
+14 error 19:22:02 - Found 3 errors. Watching for file changes.
+14 error
+14 error 19:22:11 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(17,25): error TS1005: ',' expected.
+14 error src/utils/definitionParser.ts(17,29): error TS1005: ',' expected.
+14 error src/utils/definitionParser.ts(17,32): error TS1005: ',' expected.
+14 error
+14 error 19:22:11 - Found 4 errors. Watching for file changes.
+14 error
+14 error 19:22:15 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS2304: Cannot find name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(20,5): error TS2322: Type '[string | number | boolean]' is not assignable to type '[any, any, IFunctionRule]'.
+14 error   Property '1' is missing in type '[string | number | boolean]'.
+14 error
+14 error 19:22:15 - Found 3 errors. Watching for file changes.
+14 error
+14 error 19:22:27 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS2304: Cannot find name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error
+14 error 19:22:27 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:22:29 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(24,68): error TS1005: ',' expected.
+14 error src/utils/definitionParser.ts(24,72): error TS1005: ',' expected.
+14 error src/utils/definitionParser.ts(24,75): error TS1005: ',' expected.
+14 error
+14 error 19:22:29 - Found 4 errors. Watching for file changes.
+14 error
+14 error 19:22:31 - File change detected. Starting incremental compilation...
+14 error
+14 error src/utils/definitionParser.ts(16,18): error TS2304: Cannot find name 'IFunctionRul'.
+14 error src/utils/definitionParser.ts(16,18): error TS4060: Return type of exported function has or is using private name 'IFunctionRul'.
+14 error
+14 error 19:22:31 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:22:35 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:22:35 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:22:47 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:22:47 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:22:56 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:22:56 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:23:33 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(4,68): error TS1005: ',' expected.
+14 error
+14 error 19:23:33 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:23:37 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(4,10): error TS6133: 'getDescription' is declared but its value is never read.
+14 error src/runner.ts(5,10): error TS6133: 'name' is declared but its value is never read.
+14 error src/runner.ts(5,21): error TS6133: 'fn' is declared but its value is never read.
+14 error
+14 error 19:23:38 - Found 3 errors. Watching for file changes.
+14 error
+14 error 19:23:56 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(4,10): error TS6133: 'getDescription' is declared but its value is never read.
+14 error
+14 error 19:23:56 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:24:04 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(4,10): error TS6133: 'getDescription' is declared but its value is never read.
+14 error
+14 error 19:24:04 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:24:25 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(34,24): error TS2554: Expected 1 arguments, but got 0.
+14 error
+14 error 19:24:25 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:24:28 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(34,24): error TS2554: Expected 1 arguments, but got 0.
+14 error
+14 error 19:24:28 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:24:33 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:24:33 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:25:04 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(33,15): error TS6133: 'message' is declared but its value is never read.
+14 error
+14 error 19:25:04 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:25:10 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:25:10 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:26:15 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(3,1): error TS6133: 'is' is declared but its value is never read.
+14 error src/runner.ts(35,20): error TS2693: 'string' only refers to a type, but is being used as a value here.
+14 error
+14 error 19:26:15 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:26:37 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:26:37 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:26:39 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:26:39 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:26:50 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(50,1): error TS1160: Unterminated template literal.
+14 error
+14 error 19:26:50 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:26:53 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:26:53 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:26:59 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:27:00 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:27:07 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:27:07 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:27:43 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:27:43 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:27:45 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:27:45 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:27:58 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:27:58 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:28:00 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:28:00 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:30:47 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(9,87): error TS1005: ')' expected.
+14 error
+14 error 19:30:47 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:30:50 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(9,87): error TS1005: ')' expected.
+14 error
+14 error 19:30:50 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:31:04 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(9,95): error TS1005: ')' expected.
+14 error
+14 error 19:31:04 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:31:27 - File change detected. Starting incremental compilation...
+14 error
+14 error src/global.d.ts(3,32): error TS1005: ';' expected.
+14 error src/runner.ts(9,95): error TS1005: ')' expected.
+14 error
+14 error 19:31:27 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:31:31 - File change detected. Starting incremental compilation...
+14 error
+14 error src/global.d.ts(3,30): error TS1005: ';' expected.
+14 error src/runner.ts(9,95): error TS1005: ')' expected.
+14 error
+14 error 19:31:31 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:31:40 - File change detected. Starting incremental compilation...
+14 error
+14 error src/global.d.ts(3,21): error TS1005: ';' expected.
+14 error src/runner.ts(9,95): error TS1005: ')' expected.
+14 error
+14 error 19:31:40 - Found 2 errors. Watching for file changes.
+14 error
+14 error 19:31:49 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(9,95): error TS1005: ')' expected.
+14 error
+14 error 19:31:50 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:31:59 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:32:00 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:32:17 - File change detected. Starting incremental compilation...
+14 error
+14 error src/runner.ts(10,9): error TS2554: Expected 0 arguments, but got 1.
+14 error
+14 error 19:32:17 - Found 1 error. Watching for file changes.
+14 error
+14 error 19:32:20 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:32:20 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:38:32 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:38:32 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:38:49 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:38:49 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:39:06 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:39:06 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:40:02 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:40:02 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:40:10 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:40:10 - Found 0 errors. Watching for file changes.
+14 error
+14 error 19:40:22 - File change detected. Starting incremental compilation...
+14 error
+14 error
+14 error 19:40:22 - Found 0 errors. Watching for file changes.
+14 error
+14 error 20:11:08 - File change detected. Starting incremental compilation...
+14 error
+14 error error TS6053: File '/Users/jukben/Dev/doctor/packages/doctor-core/tsconfig.json' not found.
+14 error info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+14 error
+14 error     at Promise.all.then.arr (/Users/jukben/Dev/doctor/node_modules/lerna/node_modules/execa/index.js:236:11)
+14 error     at <anonymous>

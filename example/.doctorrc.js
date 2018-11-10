@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["doctor-config-essentials", require("./doctor")],
+  extends: ["essentials", require("./doctor")],
   rules: {
     "yarn-version": "on",
     "just-test": [
