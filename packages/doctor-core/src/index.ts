@@ -1,25 +1,26 @@
-import config, { IConfig, FunctionRule, Rule } from "./utils/config";
 import runner from "./runner";
+import config from "./config";
 
 if (!config) {
   console.log("config not found!");
 }
 
-export type Rules = {
+export interface IRules {
   [key: string]: Rule[];
-};
-
-interface Swag {
-  (any): boolean | string;
-  description?: string;
 }
 
-export type Implementation = {
-  [key: string]: FunctionRule[];
-};
+export interface Implementations {
+  [key: string]: IFunctionRule[];
+}
 
-const rules: Rules = {};
-const implementation: Implementation = {};
+export enum SEVERITY {
+  OK,
+  WARN,
+  ERROR
+}
+
+const rules: IRules = {};
+const implementation: Implementations = {};
 
 const alreadyParsedPackages: string[] = [];
 

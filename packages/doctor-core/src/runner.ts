@@ -1,7 +1,5 @@
-import { Rules, Implementation } from "./index";
-import { Rule, SEVERITY } from "./utils/config";
-
-const ora = require("ora");
+import * as ora from "ora";
+import { Implementations, IRules, SEVERITY } from "./index";
 
 function parseConfig(config: Rule[]): [SEVERITY, any?] {
   if (typeof config === "boolean") {
@@ -58,7 +56,7 @@ function parseConfig(config: Rule[]): [SEVERITY, any?] {
   return [2];
 }
 
-export default function runner(rules: Rules, implementation: Implementation) {
+export default function runner(rules: IRules, implementation: Implementations) {
   const rulesToRun = Object.entries(implementation)
     .map(([name, [fn]]) => {
       const config = parseConfig(rules[name]);
