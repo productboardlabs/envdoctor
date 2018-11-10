@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["doctor-config-essentials", require("./custom")],
+  extends: ["doctor-config-essentials", require("./doctor")],
   rules: {
     "yarn-version": "on",
     "just-test": [
@@ -9,20 +9,13 @@ module.exports = {
         return "Almost passed! :)";
       }
     ],
+    // loaded from doctor/index.js
     redis: [
       2,
       {
         name: "Redis",
         port: 5432,
         host: "localhost"
-      }
-    ],
-    pb: [
-      2,
-      {
-        name: "Pb",
-        port: 80,
-        host: "pb.test"
       }
     ]
   }
