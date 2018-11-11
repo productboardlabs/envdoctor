@@ -12,7 +12,7 @@ type Rule =
 interface IConfig {
   __esModule?: boolean;
   default?: IConfig;
-  extends: string[] | string;
+  extends: Array<string | IConfig> | string;
   rules?: {
     [key: string]: Rule | IFunctionRule;
   };
