@@ -5,9 +5,12 @@ module.exports = {
     "just-test": [
       1,
       null,
-      () => {
-        return "Almost passed! :)";
-      }
+      () =>
+        new Promise(res =>
+          setTimeout(() => {
+            res("Almost passed");
+          }, 3000)
+        )
     ],
     // loaded from doctor/index.js
     redis: [
