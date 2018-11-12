@@ -1,6 +1,6 @@
 {
   "name": "envdoctor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The framework for various tests / checks in the current environment",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
