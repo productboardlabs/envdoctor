@@ -11,8 +11,9 @@
     "node": ">=7.5.0"
   },
   "bin": {
-    "doctor": "lib/cli.js"
+    "envdoctor": "lib/cli.js"
   },
+  "main": "lib/index.js",
   "scripts": {
     "tsc": "tsc",
     "tsc:watch": "tsc --watch --preserveWatchOutput"
@@ -20,9 +21,9 @@
   "dependencies": {
     "@sindresorhus/is": "^0.13.0",
     "cosmiconfig": "^5.0.7",
-    "listr": "^0.14.2",
     "ora": "^3.0.0",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "execa": "^1.0.0"
   },
   "devDependencies": {
     "@types/ramda": "^0.25.41"

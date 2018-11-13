@@ -9,6 +9,10 @@ type Rule =
   | string
   | [boolean | number | string, any?, IFunctionRule?];
 
+interface IRules {
+  [key: string]: Rule[];
+}
+
 interface IConfig {
   __esModule?: boolean;
   default?: IConfig;

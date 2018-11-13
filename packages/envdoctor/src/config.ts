@@ -1,7 +1,12 @@
 import * as Cosmiconfig from "cosmiconfig";
 
-const cosmiconfig = Cosmiconfig("doctor");
+const cosmiconfig = Cosmiconfig("envdoctor");
 
-const { config = null }: { config: IConfig } = cosmiconfig.searchSync() || {};
+export default {
+  get: () => {
+    const { config = null }: { config?: IConfig } =
+      cosmiconfig.searchSync() || {};
 
-export default config;
+    return config;
+  }
+};

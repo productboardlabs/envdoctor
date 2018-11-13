@@ -1,6 +1,11 @@
-import * as ora from "ora";
-import { SEVERITY } from "./index";
 import is from "@sindresorhus/is";
+import * as ora from "ora";
+
+enum SEVERITY {
+  OFF,
+  WARN,
+  ERROR
+}
 
 function getDescription(rule: [string, [number, any, IFunctionRule]]) {
   const [name, [, parameters, fn]] = rule;
@@ -17,6 +22,7 @@ function getDescription(rule: [string, [number, any, IFunctionRule]]) {
 export default async function runner(
   rules: Array<[string, [number, any, IFunctionRule]]>
 ) {
+  // strip out disabled rules and rules without definition
   const validRules = rules.filter(
     ([, [severity, , fn]]) => severity !== SEVERITY.OFF && fn !== undefined
   );

@@ -7,10 +7,10 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "target": "es6",
-    "sourceMap": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "target": "es6",
+    "sourceMap": false,
     "lib": ["es7", "es2017.object"]
   },
   "exclude": ["node_modules", "**/*.spec.ts"]
