@@ -2,7 +2,7 @@
   "name": "example-with-doctor",
   "private": true,
   "scripts": {
-    "doctor": "doctor"
+    "doctor": "envdoctor"
   },
   "devDependencies": {
     "envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
