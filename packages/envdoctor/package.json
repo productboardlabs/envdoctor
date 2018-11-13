@@ -19,7 +19,6 @@
     "tsc:watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
-    "@sindresorhus/is": "^0.13.0",
     "cosmiconfig": "^5.0.7",
     "ora": "^3.0.0",
     "ramda": "^0.25.0",

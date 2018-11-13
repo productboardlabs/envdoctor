@@ -18,13 +18,6 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@sindresorhus/is@^0.13.0":
-  version "0.13.0"
-  resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.13.0.tgz#a85d06c13658d0cc9584537df4a99423461f114b"
-  integrity sha512-xTPFzGRnYKVMQlcrVRhO7XIXX5t5hmBC+KpEnlhvjbN1cg5k4qDEVPwzkqhC7jGzmhAY0F9vouWHCt4S/kyeNg==
-  dependencies:
-    symbol-observable "^1.2.0"
-
 "@types/jest@^23.3.9":
   version "23.3.9"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-23.3.9.tgz#c16b55186ee73ae65e001fbee69d392c51337ad1"
@@ -4423,11 +4416,6 @@ supports-color@^5.3.0:
   integrity sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==
   dependencies:
     has-flag "^3.0.0"
-
-symbol-observable@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
-  integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
 symbol-tree@^3.2.2:
   version "3.2.2"

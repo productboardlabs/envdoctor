@@ -1,5 +1,3 @@
-import is from "@sindresorhus/is";
-
 const DEFAULT_PARAMETERS = undefined;
 
 const STRING_SEVERITY_MAP = {
@@ -27,17 +25,17 @@ export default function ruleDefinitionParser(
     IFunctionRule
   ];
 
-  if (is.number(severity)) {
+  if (typeof severity === "number") {
     if (rule > 2 || rule < 0) {
       throw new Error(`Wrong ${rule} number format`);
     }
   }
 
-  if (is.boolean(severity)) {
+  if (typeof severity === "boolean") {
     severity = severity ? 2 : 0;
   }
 
-  if (is.string(severity)) {
+  if (typeof severity === "string") {
     const text = severity.toLowerCase();
     const mappedSeverity = STRING_SEVERITY_MAP[text];
 

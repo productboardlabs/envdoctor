@@ -1,4 +1,3 @@
-import is from "@sindresorhus/is";
 import * as ora from "ora";
 
 enum SEVERITY {
@@ -42,8 +41,10 @@ export default async function runner(
         return res(false);
       }
 
-      if (is.string(status) || status === false || status === 0) {
-        if (is.string(status)) {
+      const isStatusString = typeof status === "string";
+
+      if (isStatusString || status === false || status === 0) {
+        if (isStatusString) {
           message += `: ${status}`;
         }
 
