@@ -6,6 +6,10 @@ export default function getRules(mainConfiguration: IConfig) {
   const alreadyParsedPackages: string[] = [];
 
   function getRulesRecursive(configuration: string | IConfig) {
+    if (!configuration) {
+      return;
+    }
+
     let config: IConfig;
 
     if (typeof configuration === "string") {
@@ -48,6 +52,10 @@ export default function getRules(mainConfiguration: IConfig) {
     }
 
     if (r) {
+      if (typeof r !== "object" || Array.isArray(r)) {
+        throw new Error("Rules has to be a dictionary");
+      }
+
       Object.entries(r).map(([name, definition]) => {
         if (!rules[name]) {
           rules[name] = [];

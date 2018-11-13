@@ -16,7 +16,7 @@ interface IRules {
 interface IConfig {
   __esModule?: boolean;
   default?: IConfig;
-  extends: Array<string | IConfig> | string;
+  extends?: Array<string | IConfig> | string;
   rules?: {
     [key: string]: Rule | IFunctionRule;
   };
