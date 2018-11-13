@@ -1,8 +1,8 @@
-const execa = require("execa");
+const { exec } = require("envdoctor");
 const semver = require("semver");
 
 const yarnVersion = async (version = "1.10.0") => {
-  const { stdout } = await execa("yarn", ["-v"]);
+  const { stdout } = await exec("yarn", ["-v"]);
 
   if (!semver.gt(stdout, version)) {
     return `${version} is required, ${stdout} is installed`;
