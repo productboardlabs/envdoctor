@@ -100,6 +100,39 @@ rules {
 
 As you can see, if the function returns string, it means the check failed and the string is used as reason. To pass the check please return undefined, or boolean / true.
 
+### Utilities
+
+There are set of utilities currently provided by core `envdoctor` package.
+
+- exec (which is re-exported https://github.com/sindresorhus/execa)
+
+  > const {stdout} = await execa.shell('echo unicorns');
+
+  > const { stdout } = await exec("node", ["-v"]);
+
+#### Usage
+
+> This is example implementation of node-version.js
+
+[Source code](https://github.com/jukben/envdoctor/blob/master/packages/envdoctor-config-essentials/src/rules/node-version.ts)
+
+```js
+const { exec } = require("envdoctor");
+const semver = require("semver");
+
+const yarnVersion = async (version = "v8") => {
+  const { stdout } = await exec("node", ["-v"]);
+
+  if (!semver.gt(semver.coerce(stdout), semver.coerce(version))) {
+    return `${version} is required, ${stdout} is installed`;
+  }
+};
+
+yarnVersion.description = "Check Node version";
+
+export default yarnVersion;
+```
+
 ## Implementation of your own configuration
 
 Configuration is basically JSON object which defines the rules. Check the `envdoctor-config-essentials` implementation for example.
