@@ -38,7 +38,7 @@ Then we can add script into `package.json`
 ```
 ...
 "scripts": {
-  "doctor": "doctor"
+  "doctor": "envdoctor"
 },
 ...
 ```
