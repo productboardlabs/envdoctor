@@ -58,7 +58,11 @@ and you would get (if you pass the test :) )
 
 ### extends
 
-You can use either name (string) which should match installed package. We'll try to load `envdoctor-config-<yourname>` first, then it fallback to the full name.
+You can use either name (string) which should match installed package.
+
+- @scoped (will be resolved as @scoped/envdoctor-config)
+- @scoped/package-name (will be resolved as @scoped/envdoctor-config-package-name with a fallback to @scoped/package-name)
+- package-name (will be resolved as envdoctor-config-package-name with a fallback to package-name)
 
 You can also pass your own configuration as an object for example
 extends: `["essentials", require("./doctor")]`. See `/example` implementation for more details.

@@ -1,6 +1,22 @@
 import { definitionParser } from "../utils";
 import { mergeAll, compose, values } from "ramda";
 
+const ENVDOCTOR_PREFIX = "envdoctor-config";
+
+const SCOPED_REGEX = /^(@[a-z_-]+)\/?([a-z_-]*)/;
+
+export function getPossibleNames(name: string): string[] {
+  const [, scope, pkgName] = name.match(SCOPED_REGEX) || [null, null, null];
+  if (scope) {
+    if (!pkgName) {
+      return [`${scope}/${ENVDOCTOR_PREFIX}`];
+    }
+    return [`${scope}/${ENVDOCTOR_PREFIX}-${pkgName}`, `${scope}/${pkgName}`];
+  }
+
+  return [`${ENVDOCTOR_PREFIX}-${name}`, name];
+}
+
 export default function getRules(mainConfiguration: IConfig) {
   const rules: IRules = {};
   const alreadyParsedPackages: string[] = [];
@@ -19,18 +35,23 @@ export default function getRules(mainConfiguration: IConfig) {
 
       alreadyParsedPackages.push(configuration);
 
-      try {
-        // let's try pre-scoped package first
-        config = require(`envdoctor-config-${configuration}`);
-      } catch (e) {
+      const pkgNamesToTry = getPossibleNames(configuration);
+
+      for (let i = 0; i < pkgNamesToTry.length; i++) {
+        const pkgName = pkgNamesToTry[i];
         try {
-          // then fallback to full name package
-          config = require(configuration);
+          config = require(pkgName);
         } catch (e) {
-          throw new Error(
-            `Configuration "${configuration}" or "envdoctor-config-${configuration}" doesn't found: `
-          );
+          if (i === pkgNamesToTry.length - 1) {
+            throw new Error(
+              `Configuration ${pkgNamesToTry
+                .map(name => `"${name}"`)
+                .join(" or ")} doesn't found. ${e}`
+            );
+          }
         }
+
+        break;
       }
 
       if (config.__esModule) {
