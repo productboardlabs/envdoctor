@@ -41,6 +41,7 @@ export default function getRules(mainConfiguration: IConfig) {
         const pkgName = pkgNamesToTry[i];
         try {
           config = require(pkgName);
+          break;
         } catch (e) {
           if (i === pkgNamesToTry.length - 1) {
             throw new Error(
@@ -50,8 +51,6 @@ export default function getRules(mainConfiguration: IConfig) {
             );
           }
         }
-
-        break;
       }
 
       if (config.__esModule) {

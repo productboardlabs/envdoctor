@@ -22,6 +22,16 @@ it("object based config with extends require", () => {
   ).toEqual([["test", [1, "swag", expect.any(Function)]]]);
 });
 
+it("object based config with extends require", () => {
+  expect(() =>
+    getRules({
+      extends: ["not-found"]
+    })
+  ).toThrowError(
+    /Configuration "envdoctor-config-not-found" or "not-found" doesn't found. Error: Cannot find module 'not-found' from 'getRules.ts'/
+  );
+});
+
 it("object based config with extends require, with disabled rule", () => {
   expect(
     getRules({

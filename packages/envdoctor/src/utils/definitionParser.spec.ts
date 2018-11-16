@@ -17,6 +17,8 @@ it("return correct definition based on string (disabled, on, off, warn, error)",
   expect(parser("on")).toEqual([2, undefined, undefined]);
   expect(parser("enabled")).toEqual([2, undefined, undefined]);
   expect(parser("error")).toEqual([2, undefined, undefined]);
+
+  expect(() => parser("fake")).toThrowError();
 });
 
 it("return correct definition based on array with number", () => {

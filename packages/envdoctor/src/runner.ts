@@ -6,7 +6,7 @@ enum SEVERITY {
   ERROR
 }
 
-function getDescription(rule: [string, [number, any, IFunctionRule]]) {
+export function getDescription(rule: [string, [number, any, IFunctionRule]]) {
   const [name, [, parameters, fn]] = rule;
 
   if (fn.description) {
