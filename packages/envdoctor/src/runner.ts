@@ -21,12 +21,12 @@ export function getDescription(rule: [string, [number, any, IFunctionRule]]) {
 export default async function runner(
   rules: Array<[string, [number, any, IFunctionRule]]>
 ) {
-  // strip out disabled rules and rules without definition
-  const validRules = rules.filter(
-    ([, [severity, , fn]]) => severity !== SEVERITY.OFF && fn !== undefined
+  // strip out disabled rules
+  const enabledRules = rules.filter(
+    ([, [severity]]) => severity !== SEVERITY.OFF
   );
 
-  for (const rule of validRules) {
+  for (const rule of enabledRules) {
     const [name, [severity, parameters, fn]] = rule;
     let message = getDescription(rule);
 

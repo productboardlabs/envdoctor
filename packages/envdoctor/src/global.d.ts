@@ -9,6 +9,8 @@ type Rule =
   | string
   | [boolean | number | string, any?, IFunctionRule?];
 
+type NormalizedRule = [number, any?, IFunctionRule?];
+
 interface IRules {
   [key: string]: Rule[];
 }

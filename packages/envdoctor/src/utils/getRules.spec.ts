@@ -14,10 +14,37 @@ it("object based config should return correctly normalized rules", () => {
   ).toEqual([["simple", [2, undefined, expect.any(Function)]]]);
 });
 
-it("object based config with extends require", () => {
+it("object based config should return correctly normalized rules", () => {
+  expect(() =>
+    getRules({
+      rules: ["wrong-example"]
+    })
+  ).toThrowError(/Rules has to be a dictionary/);
+});
+
+it("object based config with extends require filter invalid rule", () => {
   expect(
     getRules({
-      extends: ["example-package"]
+      extends: ["example-package"],
+      rules: {
+        fail: [2]
+      }
+    })
+  ).toEqual([["test", [1, "swag", expect.any(Function)]]]);
+});
+
+it("object based config with extends require which calls itself should prevent infinite cycle", () => {
+  expect(
+    getRules({
+      extends: ["bad-package"]
+    })
+  ).toEqual([["test", [1, "low-swag", expect.any(Function)]]]);
+});
+
+it("object based config with extends require which calls itself should prevent infinite cycle", () => {
+  expect(
+    getRules({
+      extends: ["@scoped/another-package"]
     })
   ).toEqual([["test", [1, "swag", expect.any(Function)]]]);
 });

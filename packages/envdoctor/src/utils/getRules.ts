@@ -33,14 +33,13 @@ export default function getRules(mainConfiguration: IConfig) {
         return;
       }
 
-      alreadyParsedPackages.push(configuration);
-
       const pkgNamesToTry = getPossibleNames(configuration);
 
       for (let i = 0; i < pkgNamesToTry.length; i++) {
         const pkgName = pkgNamesToTry[i];
         try {
           config = require(pkgName);
+          alreadyParsedPackages.push(pkgName);
           break;
         } catch (e) {
           if (i === pkgNamesToTry.length - 1) {
@@ -97,19 +96,20 @@ export default function getRules(mainConfiguration: IConfig) {
   getRulesRecursive(mainConfiguration);
 
   // normalize the rules
-  return Object.entries(rules).map(([name, definitions]) => {
-    const definition = (compose(
-      values,
-      mergeAll
-    )(definitions) as unknown) as [number, any, IFunctionRule];
+  return (
+    Object.entries(rules)
+      .map(([name, definitions]) => {
+        const definition = (compose(
+          values,
+          mergeAll
+        )(definitions) as unknown) as Rule;
 
-    if (!definition) {
-      throw new Error(`Definition for rule "${name}" hasn't been found`);
-    }
-
-    return [name, definitionParser(definition)] as [
-      string,
-      [number, any, IFunctionRule]
-    ];
-  });
+        return [name, definitionParser(definition)] as [
+          string,
+          [number, any, IFunctionRule]
+        ];
+      })
+      // filter undefined functions
+      .filter(([, [, , fn]]) => fn)
+  );
 }
