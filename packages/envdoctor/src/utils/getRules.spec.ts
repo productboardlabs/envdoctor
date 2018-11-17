@@ -4,6 +4,10 @@ it("null should return [] rules", () => {
   expect(getRules(null)).toEqual([]);
 });
 
+it("null should return [] rules", () => {
+  expect(() => getRules([])).toThrowError(/Configuration has invalid format/);
+});
+
 it("object based config should return correctly normalized rules", () => {
   expect(
     getRules({
@@ -29,6 +33,14 @@ it("object based config with extends require filter invalid rule", () => {
       rules: {
         fail: [2]
       }
+    })
+  ).toEqual([["test", [1, "swag", expect.any(Function)]]]);
+});
+
+it("object based config with extends es6 module", () => {
+  expect(
+    getRules({
+      extends: ["es6-package"]
     })
   ).toEqual([["test", [1, "swag", expect.any(Function)]]]);
 });

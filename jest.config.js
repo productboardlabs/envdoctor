@@ -6,6 +6,7 @@ module.exports = {
   moduleNameMapper: {
     "^bad-package$": "<rootDir>/__mocks__/bad-package-mock.js",
     "^example-package$": "<rootDir>/__mocks__/package-mock.js",
+    "^es6-package$": "<rootDir>/__mocks__/es6-package-mock.js",
     "^envdoctor-config-example$": "<rootDir>/__mocks__/package-mock.js",
     "^@scoped/example-package$": "<rootDir>/__mocks__/package-mock.js",
     "^@scoped/another-package$": "<rootDir>/__mocks__/another-package-mock.js",

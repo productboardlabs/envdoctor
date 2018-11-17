@@ -55,8 +55,13 @@ export default function getRules(mainConfiguration: IConfig) {
       if (config.__esModule) {
         config = config.default;
       }
-    } else if (typeof configuration === "object") {
+    } else if (
+      typeof configuration === "object" &&
+      !Array.isArray(configuration)
+    ) {
       config = configuration;
+    } else {
+      throw new Error("Configuration has invalid format");
     }
 
     // tslint-disable-next-line
