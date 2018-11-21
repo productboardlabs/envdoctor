@@ -11,7 +11,7 @@ It's kinda something like ESLint but to test your environment.
 
 ## Install
 
-`yarn add envdoctor -D`
+`yarn add @envdoctor/core -D`
 
 ## How to use
 
@@ -34,7 +34,7 @@ module.exports = {
 };
 ```
 
-> for `essentials` please install `envdoctor-config-essentials` package
+> for `essentials` please install `@envdoctor/envdoctor-config-essentials` package
 
 Then we can add script into `package.json`
 
@@ -67,8 +67,7 @@ You can use either name (string) which should match installed package.
 - @scoped/package-name (will be resolved as @scoped/envdoctor-config-package-name with a fallback to @scoped/package-name)
 - package-name (will be resolved as envdoctor-config-package-name with a fallback to package-name)
 
-You can also pass your own configuration as an object for example
-extends: `["essentials", require("./doctor")]`. See `/example` implementation for more details.
+You can also pass your own configuration as an object for example extends: `[@envdoctor/essentials", require("./doctor")]`. See `/example` implementation for more details.
 
 ### rules
 
@@ -109,7 +108,7 @@ As you can see, if the function returns string, it means the check failed and th
 
 ### Utilities
 
-There are set of utilities currently provided by core `envdoctor` package.
+There are set of utilities currently provided by `@envdoctor/core` package.
 
 - exec (which is re-exported https://github.com/sindresorhus/execa)
 
@@ -142,4 +141,4 @@ export default yarnVersion;
 
 ## Implementation of your own configuration
 
-Configuration is basically JSON object which defines the rules. Check the `envdoctor-config-essentials` implementation for example.
+Configuration is basically JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.

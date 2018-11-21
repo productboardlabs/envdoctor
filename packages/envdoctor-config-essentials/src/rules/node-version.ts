@@ -1,4 +1,4 @@
-const { exec } = require("envdoctor");
+const { exec } = require("@envdoctor/core");
 const semver = require("semver");
 
 const yarnVersion = async (version = "v8") => {

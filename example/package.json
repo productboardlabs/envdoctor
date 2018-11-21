@@ -5,10 +5,7 @@
     "doctor": "envdoctor"
   },
   "devDependencies": {
-    "envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
-    "envdoctor": "../packages/envdoctor"
-  },
-  "dependencies": {
-    "execa": "^1.0.0"
+    "@envdoctor/envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
+    "@envdoctor/core": "../packages/envdoctor"
   }
 }

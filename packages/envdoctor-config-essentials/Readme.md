@@ -1,4 +1,4 @@
-# envdoctor-config-essentials
+# @envdoctor/envdoctor-config-essentials
 
 This is example configuration for envdoctor framework
 
@@ -9,7 +9,7 @@ This is example configuration for envdoctor framework
 
 ## Install
 
-`yarn add envdoctor envdoctor-config-essentials -D`
+`yarn add @envdoctor/core @envdoctor/envdoctor-config-essentials -D`
 
 ## Usage
 
@@ -17,7 +17,7 @@ In your `.doctorrc` file
 
 ```
 {
-  "extends": ["essentials"],
+  "extends": ["@envdoctor/essentials"],
   "rules": {
     "yarn-version": [2, "1.9.0"],
     "node-version": [2, "v8"],
