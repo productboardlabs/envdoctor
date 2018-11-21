@@ -1,5 +1,7 @@
 # envdoctor
 
+[![codecov](https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg)](https://codecov.io/gh/jukben/envdoctor)
+
 > ⚠️ This is very early stage of the project. I've putted it together literally in few hours. Use on your own risk.
 
 This is framework how to easily create set of test to ensure that environment is correctly setup.
