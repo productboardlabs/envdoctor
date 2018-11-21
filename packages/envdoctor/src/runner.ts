@@ -19,7 +19,8 @@ export function getDescription(rule: [string, [number, any, IFunctionRule]]) {
 }
 
 export default async function runner(
-  rules: Array<[string, [number, any, IFunctionRule]]>
+  rules: Array<[string, [number, any, IFunctionRule]]>,
+  outputStream: NodeJS.WritableStream = process.stderr
 ) {
   // strip out disabled rules
   const enabledRules = rules.filter(
@@ -28,10 +29,13 @@ export default async function runner(
 
   for (const rule of enabledRules) {
     const [name, [severity, parameters, fn]] = rule;
-    let message = getDescription(rule);
+    let text = getDescription(rule);
 
     await new Promise(async res => {
-      const spinner = ora(message).start();
+      const spinner = ora({
+        text,
+        stream: outputStream
+      }).start();
 
       let status;
       try {
@@ -45,15 +49,15 @@ export default async function runner(
 
       if (isStatusString || status === false || status === 0) {
         if (isStatusString) {
-          message += `: ${status}`;
+          text += `: ${status}`;
         }
 
         switch (severity) {
           case SEVERITY.WARN:
-            spinner.warn(message);
+            spinner.warn(text);
             break;
           default:
-            spinner.fail(message);
+            spinner.fail(text);
             break;
         }
       } else {

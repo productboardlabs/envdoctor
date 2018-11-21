@@ -20,11 +20,13 @@
   },
   "dependencies": {
     "cosmiconfig": "^5.0.7",
+    "execa": "^1.0.0",
     "ora": "^3.0.0",
-    "ramda": "^0.25.0",
-    "execa": "^1.0.0"
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
-    "@types/ramda": "^0.25.41"
+    "@types/ramda": "^0.25.41",
+    "get-stream": "^4.1.0",
+    "strip-ansi": "^5.0.0"
   }
 }
