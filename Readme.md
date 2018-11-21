@@ -1,6 +1,7 @@
 # envdoctor
 
 [![codecov](https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg)](https://codecov.io/gh/jukben/envdoctor)
+[![CircleCI](https://circleci.com/gh/jukben/envdoctor.svg?style=svg)](https://circleci.com/gh/jukben/envdoctor)
 
 > ⚠️ This is very early stage of the project. I've putted it together literally in few hours. Use on your own risk.
 
