@@ -1,5 +1,5 @@
 {
-  "name": "envdoctor-config-essentials",
+  "name": "@envdoctor/envdoctor-config-essentials",
   "version": "0.0.1",
   "description": "Essentials rules for Envdoctor",
   "license": "MIT",
