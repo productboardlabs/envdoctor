@@ -1,4 +1,4 @@
-const { exec } = require("@envdoctor/core");
+const { exec } = require("@envdoctor/utils");
 
 const testPort = async ({ host, port, name }) => {
   try {

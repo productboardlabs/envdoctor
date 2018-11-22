@@ -2,18 +2,18 @@
 # yarn lockfile v1
 
 
-"@envdoctor/core@../packages/envdoctor":
-  version "0.0.4"
+"@envdoctor/core@../packages/core":
+  version "0.0.5"
   dependencies:
     cosmiconfig "^5.0.7"
     execa "^1.0.0"
     ora "^3.0.0"
     ramda "^0.25.0"
 
-"@envdoctor/core@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@envdoctor/core/-/core-0.0.4.tgz#e707e795acfc3733e579d0e4982b8d2c65c6aa5b"
-  integrity sha512-tc5XFy+RPty0aPuspNR3isihj9kI2lEh8GF082V9XwqILm756kWZGgRx7An1lOk5rHssaZ8EPTON1hfcK057Uw==
+"@envdoctor/core@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@envdoctor/core/-/core-0.0.5.tgz#5bc43d6a0ae9db7c2518a90ccad7e15a7913af0a"
+  integrity sha512-Wu/5j2fjV99MpN+6MOxO7Di3FkNpxnYg+qbxlVS3upJv/ZikDBa9A+Sx8ptZVHgcxTP2XMwgen6BtA2VFbIF1Q==
   dependencies:
     cosmiconfig "^5.0.7"
     execa "^1.0.0"
@@ -21,9 +21,15 @@
     ramda "^0.25.0"
 
 "@envdoctor/envdoctor-config-essentials@../packages/envdoctor-config-essentials":
-  version "0.0.4"
+  version "0.0.5"
   dependencies:
-    "@envdoctor/core" "^0.0.4"
+    "@envdoctor/core" "^0.0.5"
+    semver "^5.6.0"
+
+"@envdoctor/utils@../packages/utils":
+  version "0.0.5"
+  dependencies:
+    execa "^1.0.0"
     semver "^5.6.0"
 
 ansi-regex@^3.0.0:

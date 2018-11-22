@@ -1,5 +1,4 @@
-const { exec } = require("@envdoctor/core");
-const semver = require("semver");
+const { exec, semver } = require("@envdoctor/utils");
 
 const yarnVersion = async (version = "1.10.0") => {
   const { stdout } = await exec("yarn", ["-v"]);

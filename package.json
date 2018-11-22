@@ -8,6 +8,7 @@
     "packages/*"
   ],
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run --parallel tsc",
     "build:watch": "lerna run --parallel tsc:watch",
     "prepublish": "lerna run --parallel tsc",

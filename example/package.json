@@ -6,6 +6,7 @@
   },
   "devDependencies": {
     "@envdoctor/envdoctor-config-essentials": "../packages/envdoctor-config-essentials",
-    "@envdoctor/core": "../packages/envdoctor"
+    "@envdoctor/core": "../packages/core",
+    "@envdoctor/utils": "../packages/utils"
   }
 }
