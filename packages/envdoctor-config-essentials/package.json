@@ -1,6 +1,6 @@
 {
   "name": "@envdoctor/envdoctor-config-essentials",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Essentials rules for Envdoctor",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
@@ -13,7 +13,7 @@
     "tsc:watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
-    "@envdoctor/core": "^0.0.5",
+    "@envdoctor/core": "^0.0.6",
     "semver": "^5.6.0"
   }
 }
