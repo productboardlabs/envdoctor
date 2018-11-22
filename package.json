@@ -13,11 +13,14 @@
     "build:watch": "lerna run --parallel tsc:watch",
     "prepublish": "lerna run --parallel tsc",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/node": "^10.12.2",
+    "all-contributors-cli": "^5.4.1",
     "jest": "^23.6.0",
     "lerna": "^2.11.0",
     "ts-jest": "^23.10.4",

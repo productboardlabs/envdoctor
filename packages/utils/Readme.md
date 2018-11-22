@@ -6,6 +6,8 @@ Common utils for Envdoctor
 
 `yarn add @envdoctor/core @envdoctor/utils -D`
 
+## Contains
+
 - exec (which is re-exported https://github.com/sindresorhus/execa)
 
 ```js

@@ -1,7 +1,28 @@
-# envdoctor
+<div align="center">
+ <img src="https://user-images.githubusercontent.com/8135252/48912582-4ff7ed80-ee76-11e8-8eb4-68ed699ea0c4.png" alt="Envdoctor" title="Envdoctor" width="300">
+ <p>the linter for you enviroment™</p>
 
-[![codecov](https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg)](https://codecov.io/gh/jukben/envdoctor)
-[![CircleCI](https://circleci.com/gh/jukben/envdoctor.svg?style=svg)](https://circleci.com/gh/jukben/envdoctor)
+<p align="center">
+  <a href="https://codecov.io/gh/jukben/envdoctor"><img src="https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg"></a>
+  <a href="https://circleci.com/gh/jukben/envdoctor"><img src="https://circleci.com/gh/jukben/envdoctor.svg?style=svg"></a>
+  <img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square">
+</p>
+ 
+</div>
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Install](#install)
+- [Configuration](#configuration)
+  - [Advanced configurations](#advanced-configurations)
+  - [Implementation of your own rule](#implementation-of-your-own-rule)
+  - [Make your own configuration](#make-your-own-configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
 
 > ⚠️ This is very early stage of the project. I've putted it together literally in few hours. Use on your own risk.
 
@@ -9,17 +30,19 @@ This is framework how to easily create set of test to ensure that environment is
 
 It's kinda something like ESLint but to test your environment.
 
+## Install
+
+`yarn add @envdoctor/core -D`
+
+### Packages
+
 | Package                                  | Stable                                                                                 |
 | ---------------------------------------- | -------------------------------------------------------------------------------------- |
 | `@envdoctor/core`                        | [![Version][envdoctor-core-version]][envdoctor-core-package]                           |
 | `@envdoctor/utils`                       | [![Version][envdoctor-utils-version]][envdoctor-utils-package]                         |
 | `@envdoctor/envdoctor-config-essentials` | [![Version][envdoctor-config-essentials-version]][envdoctor-config-essentials-package] |
 
-## Install
-
-`yarn add @envdoctor/core -D`
-
-## How to use
+## Configuration
 
 First you have to create a configure file:
 
@@ -63,9 +86,9 @@ and you would get (if you pass the test :) )
 ✔ Check Yarn version
 ```
 
-## Advanced configurations
+### Advanced configurations
 
-### extends
+#### extends
 
 You can use either name (string) which should match installed package.
 
@@ -75,7 +98,7 @@ You can use either name (string) which should match installed package.
 
 You can also pass your own configuration as an object for example extends: `[@envdoctor/essentials", require("./doctor")]`. See `/example` implementation for more details.
 
-### rules
+#### rules
 
 Every defined rule is automatically checked. You can change this with syntax
 
@@ -89,7 +112,7 @@ or you can change severity of the rule to "warn" by
  "yarn-version": [1, "1.9.0"], // you can also use "warn", ["warn] acts the same
 ```
 
-## Implementation of your own rule
+### Implementation of your own rule
 
 This is actually really similar as example above
 
@@ -112,42 +135,23 @@ rules {
 
 As you can see, if the function returns string, it means the check failed and the string is used as reason. To pass the check please return undefined, or boolean / true.
 
-### Utilities
-
-There are set of utilities currently provided by `@envdoctor/core` package.
-
-- exec (which is re-exported https://github.com/sindresorhus/execa)
-
-  > const {stdout} = await execa.shell('echo unicorns');
-
-  > const { stdout } = await exec("node", ["-v"]);
-
-#### Usage
-
-> This is example implementation of node-version.js
-
-[Source code](https://github.com/jukben/envdoctor/blob/master/packages/envdoctor-config-essentials/src/rules/node-version.ts)
-
-```js
-const { exec } = require("envdoctor");
-const semver = require("semver");
-
-const yarnVersion = async (version = "v8") => {
-  const { stdout } = await exec("node", ["-v"]);
-
-  if (!semver.gt(semver.coerce(stdout), semver.coerce(version))) {
-    return `${version} is required, ${stdout} is installed`;
-  }
-};
-
-yarnVersion.description = "Check Node version";
-
-export default yarnVersion;
-```
-
-## Implementation of your own configuration
+### Make your own configuration
 
 Configuration is basically JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.
+
+# Usage
+
+Just add `envdoctor` to your `package.json`
+
+```json
+"scripts": {
+  "doctor": "envdoctor"
+}
+```
+
+And you are set!
+
+<!-- urls -->
 
 [envdoctor-core-version]: https://img.shields.io/npm/v/@envdoctor/core.svg?style=flat-square
 [envdoctor-core-package]: https://www.npmjs.com/package/@envdoctor/core
@@ -155,3 +159,20 @@ Configuration is basically JSON object which defines the rules. Check the `@envd
 [envdoctor-utils-package]: https://www.npmjs.com/package/@envdoctor/utils
 [envdoctor-config-essentials-version]: https://img.shields.io/npm/v/@envdoctor/envdoctor-config-essentials.svg?style=flat-square
 [envdoctor-config-essentials-package]: https://www.npmjs.com/package/@envdoctor/envdoctor-config-essentials
+
+## Contributing
+
+There is actually solid test coverage, so you should be safe.
+
+### Contributors
+
+Also, I'd love to thank these wonderful people for their contribution ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)). You rock! 💪
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore -->
+| [<img src="https://avatars3.githubusercontent.com/u/8135252?v=4" width="100px;"/><br /><sub><b>Jakub Beneš</b></sub>](https://jukben.cz)<br />[🐛](https://github.com/jukben/envdoctor/issues?q=author%3Ajukben "Bug reports") [💻](https://github.com/jukben/envdoctor/commits?author=jukben "Code") [🎨](#design-jukben "Design") [📖](https://github.com/jukben/envdoctor/commits?author=jukben "Documentation") [🤔](#ideas-jukben "Ideas, Planning, & Feedback") |
+| :---: |
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
