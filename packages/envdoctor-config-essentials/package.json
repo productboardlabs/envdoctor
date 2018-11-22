@@ -1,6 +1,6 @@
 {
   "name": "@envdoctor/envdoctor-config-essentials",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Essentials rules for Envdoctor",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
@@ -16,6 +16,6 @@
     "@envdoctor/core": "*"
   },
   "dependencies": {
-    "@envdoctor/utils": "^0.0.6"
+    "@envdoctor/utils": "^0.0.8"
   }
 }
