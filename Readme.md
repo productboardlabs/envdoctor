@@ -176,3 +176,7 @@ Also, I'd love to thank these wonderful people for their contribution ([emoji ke
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
+
+## License
+
+The MIT License (MIT) 2018 - Jakub Beneš
