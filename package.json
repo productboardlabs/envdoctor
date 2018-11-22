@@ -9,7 +9,6 @@
   ],
   "scripts": {
     "bootstrap": "lerna bootstrap",
-    "publish": "lerna publish",
     "build": "lerna run --parallel tsc",
     "build:watch": "lerna run --parallel tsc:watch",
     "prepublish": "lerna run --parallel tsc",
