@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "cosmiconfig": "^5.0.7",
-    "execa": "^1.0.0",
     "ora": "^3.0.0",
     "ramda": "^0.25.0"
   },

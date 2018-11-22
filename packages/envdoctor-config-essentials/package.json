@@ -12,9 +12,10 @@
     "tsc": "tsc",
     "tsc:watch": "tsc --watch --preserveWatchOutput"
   },
+  "peerDependencies": {
+    "@envdoctor/core": "*"
+  },
   "dependencies": {
-    "@envdoctor/core": "^0.0.6",
-    "@envdoctor/utils": "^0.0.6",
-    "semver": "^5.6.0"
+    "@envdoctor/utils": "^0.0.6"
   }
 }
