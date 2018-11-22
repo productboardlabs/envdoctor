@@ -9,6 +9,12 @@ This is framework how to easily create set of test to ensure that environment is
 
 It's kinda something like ESLint but to test your environment.
 
+| Package                                  | Stable                                                                                 |
+| ---------------------------------------- | -------------------------------------------------------------------------------------- |
+| `@envdoctor/core`                        | [![Version][envdoctor-core-version]][envdoctor-core-package]                           |
+| `@envdoctor/utils`                       | [![Version][envdoctor-utils-version]][envdoctor-utils-package]                         |
+| `@envdoctor/envdoctor-config-essentials` | [![Version][envdoctor-config-essentials-version]][envdoctor-config-essentials-package] |
+
 ## Install
 
 `yarn add @envdoctor/core -D`
@@ -142,3 +148,10 @@ export default yarnVersion;
 ## Implementation of your own configuration
 
 Configuration is basically JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.
+
+[envdoctor-core-version]: https://img.shields.io/npm/v/@envdoctor/core.svg?style=flat-square
+[envdoctor-core-package]: https://www.npmjs.com/package/@envdoctor/core
+[envdoctor-utils-version]: https://img.shields.io/npm/v/@envdoctor/utils.svg?style=flat-square
+[envdoctor-utils-package]: https://www.npmjs.com/package/@envdoctor/utils
+[envdoctor-config-essentials-version]: https://img.shields.io/npm/v/@envdoctor/envdoctor-config-essentials.svg?style=flat-square
+[envdoctor-config-essentials-package]: https://www.npmjs.com/package/@envdoctor/envdoctor-config-essentials
