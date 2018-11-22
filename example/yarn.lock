@@ -3,17 +3,17 @@
 
 
 "@envdoctor/core@../packages/core":
-  version "0.0.5"
+  version "0.0.6"
   dependencies:
     cosmiconfig "^5.0.7"
     execa "^1.0.0"
     ora "^3.0.0"
     ramda "^0.25.0"
 
-"@envdoctor/core@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@envdoctor/core/-/core-0.0.5.tgz#5bc43d6a0ae9db7c2518a90ccad7e15a7913af0a"
-  integrity sha512-Wu/5j2fjV99MpN+6MOxO7Di3FkNpxnYg+qbxlVS3upJv/ZikDBa9A+Sx8ptZVHgcxTP2XMwgen6BtA2VFbIF1Q==
+"@envdoctor/core@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@envdoctor/core/-/core-0.0.6.tgz#b4dcdfc4b74446e84ed0caa7e643870df4281bb6"
+  integrity sha512-fdjl6GxTp2CtlfRVPxW5CsRR0F9fzb9tckW5X4ahLMIF27xryM18PG2Mr3fbh0odyB+53VH4VRbLxSKOZvKI+g==
   dependencies:
     cosmiconfig "^5.0.7"
     execa "^1.0.0"
@@ -21,13 +21,22 @@
     ramda "^0.25.0"
 
 "@envdoctor/envdoctor-config-essentials@../packages/envdoctor-config-essentials":
-  version "0.0.5"
+  version "0.0.6"
   dependencies:
-    "@envdoctor/core" "^0.0.5"
+    "@envdoctor/core" "^0.0.6"
+    "@envdoctor/utils" "^0.0.6"
     semver "^5.6.0"
 
 "@envdoctor/utils@../packages/utils":
-  version "0.0.5"
+  version "0.0.6"
+  dependencies:
+    execa "^1.0.0"
+    semver "^5.6.0"
+
+"@envdoctor/utils@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@envdoctor/utils/-/utils-0.0.6.tgz#e6a6b93a811abefd646f87fb4be21c030748774b"
+  integrity sha512-ZAHhX9xjfgFLal43MVunovGPd06MuXHijwXlYe/y9WMB5V/ySzbTINYa7nVgcrnmJs9i8KU4OJC+ojiWm13ppg==
   dependencies:
     execa "^1.0.0"
     semver "^5.6.0"
