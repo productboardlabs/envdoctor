@@ -15,7 +15,7 @@
 - [Introduction](#introduction)
 - [Install](#install)
 - [Configuration](#configuration)
-  - [Advanced configurations](#advanced-configurations)
+  - [Advanced configuration](#advanced-configuration)
   - [Implementation of your own rule](#implementation-of-your-own-rule)
   - [Make your own configuration](#make-your-own-configuration)
 - [Usage](#usage)
@@ -24,11 +24,11 @@
 
 ## Introduction
 
-> ⚠️ This is very early stage of the project. I've putted it together literally in few hours. Use on your own risk.
+> ⚠️ This is very early stage of the project. I've put it together literally in a few hours. Use on your own risk.
 
-This is framework how to easily create set of test to ensure that environment is correctly setup.
+This is a framework for easy creation of a set of checks to ensure that environment is correctly set up.
 
-It's kinda something like ESLint but to test your environment.
+It's kind of like ESLint for your environment.
 
 ## Install
 
@@ -44,16 +44,16 @@ It's kinda something like ESLint but to test your environment.
 
 ## Configuration
 
-First you have to create a configure file:
+First you have to create a configuration file:
 
 - .doctorrc file in JSON or YAML format
 - .doctorrc.json file
 - .doctorrc.yaml, .doctorrc.yml, or .doctorrc.js file
 - doctor.config.js file exporting a JS object
 
-Let's use `.doctorrc.js` as in `example/` folder
+Let's use `.doctorrc.js` as in the `example/` folder
 
-```
+```js
 module.exports = {
   extends: ["essentials"],
   rules: {
@@ -67,7 +67,7 @@ module.exports = {
 
 Then we can add script into `package.json`
 
-```
+```json
 ...
 "scripts": {
   "doctor": "envdoctor"
@@ -86,7 +86,7 @@ and you would get (if you pass the test :) )
 ✔ Check Yarn version
 ```
 
-### Advanced configurations
+### Advanced configuration
 
 #### extends
 
@@ -96,7 +96,7 @@ You can use either name (string) which should match installed package.
 - @scoped/package-name (will be resolved as @scoped/envdoctor-config-package-name with a fallback to @scoped/package-name)
 - package-name (will be resolved as envdoctor-config-package-name with a fallback to package-name)
 
-You can also pass your own configuration as an object for example extends: `[@envdoctor/essentials", require("./doctor")]`. See `/example` implementation for more details.
+You can also pass your own configuration as an object for example `extends: [@envdoctor/essentials", require("./doctor")]`. See `/example` implementation for more details.
 
 #### rules
 
@@ -114,9 +114,9 @@ or you can change severity of the rule to "warn" by
 
 ### Implementation of your own rule
 
-This is actually really similar as example above
+This is actually really similar to the example above
 
-```
+```js
 function ownRuleImplementation(arg) {
    return "Failed Hello " + arg;
 }
@@ -131,13 +131,13 @@ rules {
 }
 ```
 
-> static `description` field could be also an function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
+> static `description` field could be also a function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
 
 As you can see, if the function returns string, it means the check failed and the string is used as reason. To pass the check please return undefined, or boolean / true.
 
 ### Make your own configuration
 
-Configuration is basically JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.
+Configuration is basically a JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.
 
 # Usage
 
