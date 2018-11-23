@@ -170,9 +170,8 @@ Also, I'd love to thank these wonderful people for their contribution ([emoji ke
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/8135252?v=4" width="100px;"/><br /><sub><b>Jakub Beneš</b></sub>](https://jukben.cz)<br />[🐛](https://github.com/jukben/envdoctor/issues?q=author%3Ajukben "Bug reports") [💻](https://github.com/jukben/envdoctor/commits?author=jukben "Code") [🎨](#design-jukben "Design") [📖](https://github.com/jukben/envdoctor/commits?author=jukben "Documentation") [🤔](#ideas-jukben "Ideas, Planning, & Feedback") |
-| :---: |
-
+| [<img src="https://avatars3.githubusercontent.com/u/8135252?v=4" width="100px;"/><br /><sub><b>Jakub Beneš</b></sub>](https://jukben.cz)<br />[🐛](https://github.com/jukben/envdoctor/issues?q=author%3Ajukben "Bug reports") [💻](https://github.com/jukben/envdoctor/commits?author=jukben "Code") [🎨](#design-jukben "Design") [📖](https://github.com/jukben/envdoctor/commits?author=jukben "Documentation") [🤔](#ideas-jukben "Ideas, Planning, & Feedback") | [<img src="https://avatars0.githubusercontent.com/u/140393?v=4" width="100px;"/><br /><sub><b>Tomas Ruzicka</b></sub>](http://linkedin.com/in/tomruzicka)<br />[📖](https://github.com/jukben/envdoctor/commits?author=LeZuse "Documentation") |
+| :---: | :---: |
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
