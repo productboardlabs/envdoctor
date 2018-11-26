@@ -125,7 +125,7 @@ See `/example` implementation for more details.
 
 The rule is a heart of every configuration. In the end the all rules has to be defined in the format of an array:
 
-```json
+```
 [severity, parameter, function]
 ```
 
