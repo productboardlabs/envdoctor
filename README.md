@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://codecov.io/gh/jukben/envdoctor"><img src="https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg"></a>
   <a href="https://circleci.com/gh/jukben/envdoctor"><img src="https://circleci.com/gh/jukben/envdoctor.svg?style=svg"></a>
-  <img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square">
+  <img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square">
 </p>
  
 </div>
