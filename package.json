@@ -13,6 +13,7 @@
     "build:watch": "lerna run --parallel tsc:watch",
     "prepublish": "lerna run --parallel tsc",
     "test": "jest",
+    "lint": "tslint packages/**/src/**/*.ts",
     "test:watch": "jest --watch",
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate"

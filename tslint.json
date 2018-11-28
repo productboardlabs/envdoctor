@@ -1,6 +1,9 @@
 {
   "defaultSeverity": "error",
   "extends": ["tslint:latest", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["packages/**/lib/*"]
+  },
   "jsRules": {},
   "rules": {
     "ordered-imports": [false],
