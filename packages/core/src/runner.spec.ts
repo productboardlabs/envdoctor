@@ -70,7 +70,13 @@ it("should show error for one rule", async () => {
   const stream = new PassThroughStream();
   const output = getStream(stream);
 
-  await runner([["name", [2, null, () => false]]], stream);
+  const report = await runner([["name", [2, null, () => false]]], stream);
+
+  expect(report).toEqual({
+    errors: ["name"],
+    warns: [],
+    succeeds: []
+  });
 
   stream.end();
 
@@ -86,10 +92,16 @@ it("should pass one rule and show warning for another", async () => {
   const stream = new PassThroughStream();
   const output = getStream(stream);
 
-  await runner(
+  const report = await runner(
     [["name", [1, null, () => false]], ["another-one", [2, null, () => true]]],
     stream
   );
+
+  expect(report).toEqual({
+    errors: [],
+    warns: ["name"],
+    succeeds: ["another-one"]
+  });
 
   stream.end();
 

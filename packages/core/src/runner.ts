@@ -1,4 +1,5 @@
 import * as ora from "ora";
+import { error } from "util";
 
 enum SEVERITY {
   OFF,
@@ -21,11 +22,19 @@ export function getDescription(rule: [string, [number, any, IFunctionRule]]) {
 export default async function runner(
   rules: Array<[string, [number, any, IFunctionRule]]>,
   outputStream: NodeJS.WritableStream = process.stderr
-) {
+): Promise<{
+  errors: string[];
+  warns: string[];
+  succeeds: string[];
+}> {
   // strip out disabled rules
   const enabledRules = rules.filter(
     ([, [severity]]) => severity !== SEVERITY.OFF
   );
+
+  const errors = [];
+  const warns = [];
+  const succeeds = [];
 
   for (const rule of enabledRules) {
     const [name, [severity, parameters, fn]] = rule;
@@ -55,16 +64,25 @@ export default async function runner(
         switch (severity) {
           case SEVERITY.WARN:
             spinner.warn(text);
+            warns.push(name);
             break;
           default:
             spinner.fail(text);
+            errors.push(name);
             break;
         }
       } else {
         spinner.succeed();
+        succeeds.push(name);
       }
 
       res(true);
     });
   }
+
+  return {
+    succeeds,
+    errors,
+    warns
+  };
 }
