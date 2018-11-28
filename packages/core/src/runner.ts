@@ -1,5 +1,4 @@
 import * as ora from "ora";
-import { error } from "util";
 
 enum SEVERITY {
   OFF,
