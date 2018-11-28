@@ -1,8 +1,8 @@
-import runner from "./runner";
-
 import { PassThrough as PassThroughStream } from "stream";
-const getStream = require("get-stream");
-const stripAnsi = require("strip-ansi");
+import * as getStream from "get-stream";
+import * as stripAnsi from "strip-ansi";
+
+import runner from "./runner";
 
 it("should throw an error because rule is invalid", async () => {
   const stream = new PassThroughStream();

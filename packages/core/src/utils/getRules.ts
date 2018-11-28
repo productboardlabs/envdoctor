@@ -64,8 +64,7 @@ export default function getRules(mainConfiguration: IConfig) {
       throw new Error("Configuration has invalid format");
     }
 
-    // tslint-disable-next-line
-    let { extends: e, rules: r } = config;
+    let { extends: e, rules: r } = config; // tslint:disable-line
 
     if (e) {
       if (!Array.isArray(e)) {
