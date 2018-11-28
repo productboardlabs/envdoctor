@@ -151,7 +151,7 @@ ownRuleImplementation.description = "This is just example";
 
 > static `description` field could be also a function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
 
-When we put everything together we will get somehting like this:
+When we put everything together we will get something like this:
 
 ```js
 rules {
@@ -162,7 +162,7 @@ rules {
 
 In real world this rule always fails (with an error!) because we are returning `string` in the implementation. If we want to "pass" the check, let's return anything else.
 
-Every defined rule is automatically going to be checked. That means also rules you are extending from the `extends`. You can of course disable those rules for example like this:
+Every defined rule is automatically going to be checked. That means also rules you are extending from the `extends`. The rule name has to be unique in entire configuration. You can edit the rule definition on any level of the configuration, the more close to the root configuration you are the more weight the definition has. Thus you can easily disable the whole rule as is shown bellow:
 
 ```js
  "yarn-version": 0, // disable rule; [0], "off", "disable" acts the same
