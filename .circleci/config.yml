@@ -38,7 +38,7 @@ jobs:
       - attach_workspace:
           at: ~/envdoctor
       - run: yarn run lint
-  unit-tests:
+  tests:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -53,6 +53,19 @@ jobs:
           key: v3-jest-cache-{{ checksum "yarn.lock" }}
           paths:
             - .jestCache
+      - persist_to_workspace:
+          root: .
+          paths: .
+  tests-coverage:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - run: |
+          yarn test -- --coverage
+          bash <(curl -s https://codecov.io/bash)
+      - store_artifacts:
+          path: coverage
       - persist_to_workspace:
           root: .
           paths: .
@@ -71,9 +84,12 @@ workflows:
       - lint:
           requires:
             - install-dependencies
-      - unit-tests:
+      - tests:
           requires:
             - install-dependencies
+      - tests-coverage:
+          requires:
+            - tests
       - build:
           requires:
             - install-dependencies
