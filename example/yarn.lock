@@ -3,40 +3,29 @@
 
 
 "@envdoctor/core@../packages/core":
-  version "0.0.6"
+  version "0.0.8"
   dependencies:
+    chalk "^2.4.1"
     cosmiconfig "^5.0.7"
-    execa "^1.0.0"
-    ora "^3.0.0"
-    ramda "^0.25.0"
-
-"@envdoctor/core@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@envdoctor/core/-/core-0.0.6.tgz#b4dcdfc4b74446e84ed0caa7e643870df4281bb6"
-  integrity sha512-fdjl6GxTp2CtlfRVPxW5CsRR0F9fzb9tckW5X4ahLMIF27xryM18PG2Mr3fbh0odyB+53VH4VRbLxSKOZvKI+g==
-  dependencies:
-    cosmiconfig "^5.0.7"
-    execa "^1.0.0"
+    dedent "^0.7.0"
     ora "^3.0.0"
     ramda "^0.25.0"
 
 "@envdoctor/envdoctor-config-essentials@../packages/envdoctor-config-essentials":
-  version "0.0.6"
+  version "0.0.8"
   dependencies:
-    "@envdoctor/core" "^0.0.6"
-    "@envdoctor/utils" "^0.0.6"
-    semver "^5.6.0"
+    "@envdoctor/utils" "^0.0.8"
 
 "@envdoctor/utils@../packages/utils":
-  version "0.0.6"
+  version "0.0.8"
   dependencies:
     execa "^1.0.0"
     semver "^5.6.0"
 
-"@envdoctor/utils@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@envdoctor/utils/-/utils-0.0.6.tgz#e6a6b93a811abefd646f87fb4be21c030748774b"
-  integrity sha512-ZAHhX9xjfgFLal43MVunovGPd06MuXHijwXlYe/y9WMB5V/ySzbTINYa7nVgcrnmJs9i8KU4OJC+ojiWm13ppg==
+"@envdoctor/utils@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@envdoctor/utils/-/utils-0.0.8.tgz#fdb2939a9009bc01ec8b13d6612d46effb6bcb2b"
+  integrity sha512-JI4GTc9UKJHYwTY6+0bBIUxii5nkugolbJfj4ahJGB/iXOnMN9jvchaXIasulIBK5POL3BsClVD469+WLvy+9g==
   dependencies:
     execa "^1.0.0"
     semver "^5.6.0"
@@ -79,7 +68,7 @@ callsites@^2.0.0:
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
 
-chalk@^2.0.1, chalk@^2.3.1:
+chalk@^2.0.1, chalk@^2.3.1, chalk@^2.4.1:
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.1.tgz#18c49ab16a037b6eb0152cc83e3471338215b66e"
   integrity sha512-ObN6h1v2fTJSmUXoS3nMQ92LbDK9be4TV+6G+omQlGJFdcUX5heKi1LZ1YnRMIgwTLEj3E24bT6tYni50rlCfQ==
@@ -137,6 +126,11 @@ cross-spawn@^6.0.0:
     semver "^5.5.0"
     shebang-command "^1.2.0"
     which "^1.2.9"
+
+dedent@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/dedent/-/dedent-0.7.0.tgz#2495ddbaf6eb874abb0e1be9df22d2e5a544326c"
+  integrity sha1-JJXduvbrh0q7Dhvp3yLS5aVEMmw=
 
 defaults@^1.0.3:
   version "1.0.3"

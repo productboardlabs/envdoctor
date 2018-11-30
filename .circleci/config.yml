@@ -1,40 +1,95 @@
 version: 2
+
+defaults: &defaults
+  working_directory: ~/envdoctor
+  docker:
+    - image: circleci/node:10
+
 jobs:
-  build:
-    working_directory: ~/envdoctor
-
-    docker:
-      - image: circleci/node:latest
-
+  install-dependencies:
+    <<: *defaults
     steps:
       - checkout
-
+      - attach_workspace:
+          at: ~/envdoctor
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v3-dependencies-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
+            - v3-dependencies-
       - run:
           name: Install Dependencies
-          command: yarn install
-
+          command: |
+            yarn install --frozen-lockfile
+            yarn run bootstrap
       - save_cache:
+          key: v3-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: Run Tests
-          command: yarn test
-
-      - run:
-          name: Check Coverage
-          command: yarn test -- --coverage
-
-      - run:
-          name: Codecov
-          command: bash <(curl -s https://codecov.io/bash)
-
+            - packages/core/node_modules
+            - packages/envdoctor-config-essentials/node_modules
+            - packages/utils/node_modules
+      - persist_to_workspace:
+          root: .
+          paths: .
+  lint:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - run: yarn run lint
+  tests:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - restore_cache:
+          keys:
+            - v3-jest-cache-{{ checksum "yarn.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v3-jest-cache-
+      - run: yarn run test
+      - save_cache:
+          key: v3-jest-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - .jestCache
+      - persist_to_workspace:
+          root: .
+          paths: .
+  tests-coverage:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - run: |
+          yarn test -- --coverage
+          bash <(curl -s https://codecov.io/bash)
       - store_artifacts:
           path: coverage
+      - persist_to_workspace:
+          root: .
+          paths: .
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - run: yarn run build
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - install-dependencies
+      - lint:
+          requires:
+            - install-dependencies
+      - tests:
+          requires:
+            - install-dependencies
+      - tests-coverage:
+          requires:
+            - tests
+      - build:
+          requires:
+            - install-dependencies
