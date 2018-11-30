@@ -7,3 +7,5 @@ export default {
     "node-version": nodeVersion
   }
 };
+
+export { COMPARISON as COMPARATORS } from "./utils/versionComparator";
