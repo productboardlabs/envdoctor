@@ -12,7 +12,7 @@
     "bootstrap": "lerna bootstrap",
     "build": "lerna run tsc",
     "build:watch": "lerna run --parallel tsc:watch",
-    "lint": "tslint packages/**/src/**/*.ts",
+    "lint": "tslint 'packages/**/src/**/!(*.spec|*.d).ts'",
     "test": "jest",
     "test:watch": "jest --watch",
     "contributors:add": "all-contributors add",
