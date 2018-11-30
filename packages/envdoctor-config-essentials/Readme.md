@@ -17,6 +17,7 @@ Possible comparators:
 - `COMPARATORS.GTE`
 - `COMPARATORS.LT`
 - `COMPARATORS.LTE`
+- `COMPARATORS.SATISFIES`
 
 ## Rules
 

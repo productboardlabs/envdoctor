@@ -6,6 +6,30 @@ it("should throw an fatal error", () => {
   expect(() => versionComparator({ version: "8" })).toThrow();
 });
 
+it("satisfies should work", () => {
+  expect(
+    versionComparator(
+      {
+        comparator: COMPARATORS.SATISFIES,
+        version: ">= 1 < 2.3"
+      },
+      "1.2.3"
+    )
+  ).toEqual(true);
+});
+
+it("satisfies should thrown an error", () => {
+  expect(
+    versionComparator(
+      {
+        comparator: COMPARATORS.SATISFIES,
+        version: ">= 1 < 2.3"
+      },
+      "2.4"
+    )
+  ).toEqual('Range ">= 1 < 2.3" is not satisfied, 2.4 is installed');
+});
+
 it("eq should work", () => {
   expect(
     versionComparator(
