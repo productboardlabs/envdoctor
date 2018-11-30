@@ -1,8 +1,8 @@
-import versionComparator, { COMPARISON } from "./versionComparator";
+import versionComparator, { COMPARATORS } from "./versionComparator";
 
 it("should throw an fatal error", () => {
   expect(() => versionComparator()).toThrow();
-  expect(() => versionComparator({ comparator: COMPARISON.EQ })).toThrow();
+  expect(() => versionComparator({ comparator: COMPARATORS.EQ })).toThrow();
   expect(() => versionComparator({ version: "8" })).toThrow();
 });
 
@@ -10,7 +10,7 @@ it("eq should work", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.EQ,
+        comparator: COMPARATORS.EQ,
         version: "8"
       },
       "8"
@@ -22,7 +22,7 @@ it("eq should thrown an error", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.EQ,
+        comparator: COMPARATORS.EQ,
         version: "8"
       },
       "7"
@@ -34,7 +34,7 @@ it("gt should work", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.GT,
+        comparator: COMPARATORS.GT,
         version: "8"
       },
       "9"
@@ -46,7 +46,7 @@ it("gt should thrown an error", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.GT,
+        comparator: COMPARATORS.GT,
         version: "10"
       },
       "9"
@@ -58,7 +58,7 @@ it("gte should work", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.GTE,
+        comparator: COMPARATORS.GTE,
         version: "9"
       },
       "9"
@@ -70,7 +70,7 @@ it("gte should thrown an error", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.GTE,
+        comparator: COMPARATORS.GTE,
         version: "10"
       },
       "9"
@@ -82,7 +82,7 @@ it("lt should work", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.LT,
+        comparator: COMPARATORS.LT,
         version: "10"
       },
       "9"
@@ -94,7 +94,7 @@ it("lt should throw an error", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.LT,
+        comparator: COMPARATORS.LT,
         version: "9"
       },
       "10"
@@ -106,7 +106,7 @@ it("lte should work", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.LTE,
+        comparator: COMPARATORS.LTE,
         version: "10"
       },
       "10"
@@ -118,7 +118,7 @@ it("lte should work throw an error", () => {
   expect(
     versionComparator(
       {
-        comparator: COMPARISON.LTE,
+        comparator: COMPARATORS.LTE,
         version: "9"
       },
       "10"

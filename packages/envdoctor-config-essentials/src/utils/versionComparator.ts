@@ -1,7 +1,7 @@
 import { semver } from "@envdoctor/utils";
 
 // basend on semver API https://github.com/npm/node-semver#comparison
-export const COMPARISON = {
+export const COMPARATORS = {
   EQ: "eq",
   GT: "gt",
   GTE: "gte",
@@ -36,15 +36,15 @@ export default function versionComparator(
     !semver[comparator](semver.coerce(installedVersion), semver.coerce(version))
   ) {
     switch (comparator) {
-      case COMPARISON.EQ:
+      case COMPARATORS.EQ:
         return `${version} is required, ${installedVersion} is installed`;
-      case COMPARISON.GT:
+      case COMPARATORS.GT:
         return `Greater version than ${version} is required, ${installedVersion} is installed`;
-      case COMPARISON.GTE:
+      case COMPARATORS.GTE:
         return `${version} or greater version  is required, ${installedVersion} is installed`;
-      case COMPARISON.LT:
+      case COMPARATORS.LT:
         return `Lower version than ${version} is required, ${installedVersion} is installed`;
-      case COMPARISON.LTE:
+      case COMPARATORS.LTE:
         return `${version} or lower is required, ${installedVersion} is installed`;
     }
   }

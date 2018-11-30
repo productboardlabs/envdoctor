@@ -8,4 +8,4 @@ export default {
   }
 };
 
-export { COMPARISON as COMPARATORS } from "./utils/versionComparator";
+export { COMPARATORS } from "./utils/versionComparator";
