@@ -1,11 +1,65 @@
 # @envdoctor/envdoctor-config-essentials
 
-This is example configuration for envdoctor framework
+This configuration holds an essential check of version
+
+### Utils
+
+- Helper object defining possible comparators
+
+```js
+const { COMPARATORS } = require("@envdoctor/envdoctor-config-essentials");
+```
+
+Possible comparators:
+
+- `COMPARATORS.EQ`
+- `COMPARATORS.GT`
+- `COMPARATORS.GTE`
+- `COMPARATORS.LT`
+- `COMPARATORS.LTE`
 
 ## Rules
 
-- yarn_version (version: string)
-- node_version (version: string)
+### node-version
+
+#### Configuration
+
+````ts
+interface INodeVersion {
+  file?: string;
+  comparator?: string;
+  version?: string;
+}
+```
+
+#### Usage
+
+```js
+{
+  "node-version": [2, { comparator: COMPARATORS.GT, version: "9" ]
+}
+````
+
+⚠️ There is also experimental API which takes the name of the file: `{ file: ".nvmrc"}` for instance. This will look for `.nvmrc` file for the version and then ensure that user uses the same major version.
+
+### yarn-version
+
+#### Configuration
+
+```ts
+interface INodeVersion {
+  comparator?: string;
+  version?: string;
+}
+```
+
+#### Usage
+
+```js
+{
+  "yarn-version": [2, { comparator: COMPARATORS.GT, version: "9" }]
+}
+```
 
 ## Install
 
@@ -13,14 +67,16 @@ This is example configuration for envdoctor framework
 
 ## Usage
 
-In your `.doctorrc` file
+In your `.envdoctorrc` file
 
-```
-{
-  "extends": ["@envdoctor/essentials"],
-  "rules": {
-    "yarn-version": [2, "1.9.0"],
-    "node-version": [2, "v8"],
+```js
+const { COMPARATORS } = require("@envdoctor/envdoctor-config-essentials");
+
+module.exports = {
+  extends: ["@envdoctor/essentials"],
+  rules: {
+    "node-version": [2, { comparator: COMPARATORS.GT, version: "9" }],
+    "yarn-version": [2, { comparator: COMPARATORS.EQ, version: "1.12.3" }]
   }
-}
+};
 ```

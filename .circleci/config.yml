@@ -75,6 +75,9 @@ jobs:
       - attach_workspace:
           at: ~/envdoctor
       - run: yarn run build
+      - persist_to_workspace:
+          root: .
+          paths: .
 
 workflows:
   version: 2
@@ -84,12 +87,13 @@ workflows:
       - lint:
           requires:
             - install-dependencies
-      - tests:
-          requires:
-            - install-dependencies
-      - tests-coverage:
-          requires:
-            - tests
       - build:
           requires:
             - install-dependencies
+      - tests:
+          requires:
+            - install-dependencies
+            - build
+      - tests-coverage:
+          requires:
+            - tests

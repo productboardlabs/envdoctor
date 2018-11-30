@@ -63,11 +63,13 @@ First you have to create a configuration file:
 Let's create `.envdoctorrc.js` and do simple configuration.
 
 ```js
+const { COMPARATORS } = require("@envdoctor/envdoctor-config-essentials");
+
 module.exports = {
-  extends: ["@envdoctor/essentials"],
+  extends: ["@envdoctor/essentials", require("./doctor")],
   rules: {
-    "yarn-version": [2, "1.9.0"],
-    "node-version": [2, "v8"]
+    "node-version": [2, { comparator: COMPARATORS.GT, version: "9" }],
+    "yarn-version": [2, { comparator: COMPARATORS.EQ, version: "1.12.3" }]
   }
 };
 ```
@@ -165,13 +167,13 @@ In real world this rule always fails (with an error!) because we are returning `
 Every defined rule is automatically going to be checked. That means also rules you are extending from the `extends`. The rule name has to be unique in entire configuration. You can edit the rule definition on any level of the configuration, the more close to the root configuration you are the more weight the definition has. Thus you can easily disable the whole rule as is shown bellow:
 
 ```js
- "yarn-version": 0, // disable rule; [0], "off", "disable" acts the same
+"yarn-version": 0, // disable rule; [0], "off", "disable" acts the same
 ```
 
 or you can change severity of the rule to "warn" by
 
 ```js
- "yarn-version": [1, "1.9.0"], // you can also use "warn", ["warn] acts the same
+"yarn-version": [1, { comparator: COMPARATORS.GT, version: "9" }],
 ```
 
 ## Make your own configuration
