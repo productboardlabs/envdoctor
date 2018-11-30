@@ -6,7 +6,8 @@ export const COMPARATORS = {
   GT: "gt",
   GTE: "gte",
   LT: "lt",
-  LTE: "lte"
+  LTE: "lte",
+  SATISFIES: "satisfies"
 };
 
 export interface IConfiguration {
@@ -32,9 +33,19 @@ export default function versionComparator(
     throw new Error("Version has to be specified");
   }
 
-  if (
-    !semver[comparator](semver.coerce(installedVersion), semver.coerce(version))
-  ) {
+  const normalizedInstalledVersion = semver.coerce(installedVersion);
+
+  if (comparator === COMPARATORS.SATISFIES) {
+    if (!semver.satisfies(normalizedInstalledVersion, version)) {
+      return `Range "${version}" is not satisfied, ${installedVersion} is installed`;
+    }
+
+    return true;
+  }
+
+  const normalizedVersion = semver.coerce(version);
+
+  if (!semver[comparator](normalizedInstalledVersion, normalizedVersion)) {
     switch (comparator) {
       case COMPARATORS.EQ:
         return `${version} is required, ${installedVersion} is installed`;
