@@ -4,14 +4,16 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest"
   },
   moduleNameMapper: {
-    "^bad-package$": "<rootDir>/__mocks__/bad-package-mock.js",
-    "^example-package$": "<rootDir>/__mocks__/package-mock.js",
-    "^es6-package$": "<rootDir>/__mocks__/es6-package-mock.js",
-    "^envdoctor-config-example$": "<rootDir>/__mocks__/package-mock.js",
-    "^@scoped/example-package$": "<rootDir>/__mocks__/package-mock.js",
-    "^@scoped/another-package$": "<rootDir>/__mocks__/another-package-mock.js",
-    "^@scoped/envdoctor-config-example$": "<rootDir>/__mocks__/package-mock.js",
-    "^@scoped/envdoctor-config$": "<rootDir>/__mocks__/package-mock.js"
+    "^bad-package$": "<rootDir>/__fixtures__/packages/bad-package.js",
+    "^example-package$": "<rootDir>/__fixtures__/packages/package.js",
+    "^es6-package$": "<rootDir>/__fixtures__/packages/es6-package.js",
+    "^envdoctor-config-example$": "<rootDir>/__fixtures__/packages/package.js",
+    "^@scoped/example-package$": "<rootDir>/__fixtures__/packages/package.js",
+    "^@scoped/another-package$":
+      "<rootDir>/__fixtures__/packages/another-package.js",
+    "^@scoped/envdoctor-config-example$":
+      "<rootDir>/__fixtures__/packages/package.js",
+    "^@scoped/envdoctor-config$": "<rootDir>/__fixtures__/packages/package.js"
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
