@@ -46,7 +46,7 @@ $ yarn run envdoctor
 
 Options
   --help, -h         Print this help
-  --version, -v      Print version
+  --version, -v      Print the version
 `);
 }
 

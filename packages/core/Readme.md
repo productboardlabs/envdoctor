@@ -9,3 +9,10 @@ Core package which provides `envdoctor` binary
 ## Usage
 
 `yarn run envdoctor`
+
+### CLI Options
+
+```json
+--help, -h         Print this help
+--version, -v      Print the version
+```
