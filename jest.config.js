@@ -3,6 +3,7 @@ module.exports = {
   transform: {
     "^.+\\.tsx?$": "ts-jest"
   },
+  coveragePathIgnorePatterns: ["<rootDir>/__fixtures__"],
   moduleNameMapper: {
     "^bad-package$": "<rootDir>/__fixtures__/packages/bad-package.js",
     "^example-package$": "<rootDir>/__fixtures__/packages/package.js",
