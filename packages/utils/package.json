@@ -1,6 +1,6 @@
 {
   "name": "@envdoctor/utils",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Common utils for Envdoctor",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
