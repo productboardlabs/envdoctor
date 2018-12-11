@@ -1,11 +1,15 @@
 #!/usr/bin/env node
 
+import updateNotifier from "update-notifier";
+import * as pkg from "../package.json";
 import runner from "./runner";
 import config from "./config";
 import reporter from "./utils/reporter";
 import { getRules } from "./utils";
 
 const NS_PER_SEC = 1e9;
+
+updateNotifier({ pkg }).notify();
 
 async function cli() {
   const startTime = process.hrtime();
