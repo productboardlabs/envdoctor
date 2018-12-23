@@ -1,6 +1,6 @@
 {
   "docs": {
-    "Getting Started": ["introduction", "installation", "quick-setup"],
+    "Getting Started": ["introduction", "installation", "quick-setup", "cli"],
     "Customization": ["create-rule", "create-preset"]
   }
 }

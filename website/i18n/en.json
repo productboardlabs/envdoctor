@@ -5,6 +5,9 @@
     "previous": "Previous",
     "tagline": "the linter for you enviroment™",
     "docs": {
+      "cli": {
+        "title": "CLI"
+      },
       "create-preset": {
         "title": "Create Preset"
       },
