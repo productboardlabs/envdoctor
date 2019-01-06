@@ -3,3 +3,4 @@ coverage/
 lib/
 yarn-error.log
 lerna-debug.log
+website/build

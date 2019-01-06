@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+
+font name: Aileron-SemiBold
+font link: http://dotcolon.net/font/aileron/
+font author: dot colon
+font author site: http://dotcolon.net/
+
+icon designer: Jorge Olino
+icon designer link: /jorge.olino
+        
+{"bg":"#EDED1B","icon":"#131619","font":"#131619"}
+      

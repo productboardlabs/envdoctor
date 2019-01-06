@@ -25,7 +25,7 @@ Possible comparators:
 
 #### Configuration
 
-````ts
+```ts
 interface INodeVersion {
   file?: string;
   comparator?: string;
@@ -39,7 +39,7 @@ interface INodeVersion {
 {
   "node-version": [2, { comparator: COMPARATORS.GT, version: "9" ]
 }
-````
+```
 
 ⚠️ There is also experimental API which takes the name of the file: `{ file: ".nvmrc"}` for instance. This will look for `.nvmrc` file for the version and then ensure that user uses the same major version.
 

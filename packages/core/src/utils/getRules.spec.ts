@@ -4,8 +4,14 @@ it("null should return [] rules", () => {
   expect(getRules(null)).toEqual([]);
 });
 
-it("null should return [] rules", () => {
+it("invalid format should thrown an error", () => {
   expect(() => getRules([])).toThrowError(/Configuration has invalid format/);
+});
+
+it("config without rules should work as expected", () => {
+  expect(getRules({ extends: ["example-package"] })).toEqual([
+    ["test", [1, "swag", expect.any(Function)]]
+  ]);
 });
 
 it("object based config should return correctly normalized rules", () => {
