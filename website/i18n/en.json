@@ -8,6 +8,9 @@
       "cli": {
         "title": "CLI"
       },
+      "configuration": {
+        "title": "Configuration"
+      },
       "create-preset": {
         "title": "Create Preset"
       },
@@ -19,9 +22,6 @@
       },
       "introduction": {
         "title": "Introduction"
-      },
-      "quick-setup": {
-        "title": "Quick Setup"
       }
     },
     "links": {

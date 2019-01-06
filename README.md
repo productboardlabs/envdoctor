@@ -55,8 +55,8 @@ First you have to create a configuration file:
 - `.envdoctorrc` file in JSON or YAML format
 - `.envdoctorrc.json` file
 - `.envdoctorrc.yaml`, `.envdoctorrc.yml`, or `.envdoctorrc.js` file
-- doctor.config.js file exporting a JS object
-- envdoctor filed in `package.json`
+- `envdoctor.config.js` file exporting a JS object
+- `envdoctor` filed in `package.json`
 
 > If you are interested in demo project, let's check it out [example/](https://github.com/jukben/envdoctor/tree/master/example) folder.☝
 
