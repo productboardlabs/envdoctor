@@ -78,6 +78,12 @@ jobs:
       - persist_to_workspace:
           root: .
           paths: .
+  deploy-website:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/envdoctor
+      - run: GIT_USER=jukben CURRENT_BRANCH=master USE_SSH=true yarn run publish-gh-pages
 
 workflows:
   version: 2
@@ -97,3 +103,9 @@ workflows:
       - tests-coverage:
           requires:
             - tests
+      - deploy-website:
+          requires:
+            - install-dependencies
+          filters:
+            branches:
+              only: master
