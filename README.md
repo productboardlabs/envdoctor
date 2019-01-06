@@ -14,10 +14,8 @@
 
 - [Introduction](#introduction)
 - [Install](#install)
-- [Configuration](#configuration)
-- [Advanced configuration](#advanced-configuration)
-- [Make your own configuration](#make-your-own-configuration)
 - [Contributing](#contributing)
+- [Documentation](#documentation)
 - [License](#license)
 
 ## Introduction
@@ -46,150 +44,11 @@ or
 | `@envdoctor/utils`                       | [![Version][envdoctor-utils-version]][envdoctor-utils-package]                         |
 | `@envdoctor/envdoctor-config-essentials` | [![Version][envdoctor-config-essentials-version]][envdoctor-config-essentials-package] |
 
-## Configuration
+### Documentation
 
-Idea behind envdoctor is simple and it's heavily inspired by ESLint and other similar tools I've used in past or I'm still using.
-
-First you have to create a configuration file:
-
-- `.envdoctorrc` file in JSON or YAML format
-- `.envdoctorrc.json` file
-- `.envdoctorrc.yaml`, `.envdoctorrc.yml`, or `.envdoctorrc.js` file
-- `envdoctor.config.js` file exporting a JS object
-- `envdoctor` filed in `package.json`
-
-> If you are interested in demo project, let's check it out [example/](https://github.com/jukben/envdoctor/tree/master/example) folder.☝
-
-Let's create `.envdoctorrc.js` and do simple configuration.
-
-```js
-const { COMPARATORS } = require("@envdoctor/envdoctor-config-essentials");
-
-module.exports = {
-  extends: ["@envdoctor/essentials", require("./doctor")],
-  rules: {
-    "node-version": [2, { comparator: COMPARATORS.GT, version: "9" }],
-    "yarn-version": [2, { comparator: COMPARATORS.EQ, version: "1.12.3" }]
-  }
-};
-```
-
-So what have we done so far? Field `extends` means from which **configurations** we want to _inherit_ the rules. You can think about it as preset.
-
-> To use `@envdoctor/essentials` properly, please install `@envdoctor/envdoctor-config-essentials` package
-
-Then let's add script into the `package.json` like this:
-
-```json
-...
-"scripts": {
-  "doctor": "envdoctor"
-},
-...
-```
-
-Now you should be able to run:
-
-```bash
-yarn run doctor
-```
-
-and if so, you going to get the result:
-
-```
-✔ Check Node version
-✔ Check Yarn version
-```
-
-Awesome! 🚀
-
-Do you know what's going on under the hood? Let's check it out following chapter.
-
-## Advanced configuration
-
-### extends
-
-This field is basically holding the configuration with rules definition. You can use either name (string) which should match installed package.
-
-- @scoped (will be resolved as @scoped/envdoctor-config)
-- @scoped/package-name (will be resolved as @scoped/envdoctor-config-package-name with a fallback to @scoped/package-name)
-- package-name (will be resolved as envdoctor-config-package-name with a fallback to package-name)
-
-You can also pass your own configuration as an object for example easily with `require`:
-
-```js
-extends: [@envdoctor/essentials", require("./doctor")]
-```
-
-See `/example` implementation for more details.
-
-### rules
-
-The rule is a heart of every configuration. In the end the all rules has to be defined in the format of an array:
-
-```
-[severity, parameter, function]
-```
-
-_Severity_ is suppose to be:
-
-- `0` - turned off, `1` - warn, `2` - error
-- `off` or `disabled`
-- `on` or `enabled`
-- `warn`
-- `error`
-
-_Parameter_ is suppose to be whatever your function (rule) will play together.
-
-_Function_ is the definition of the rule. Very simple example bellow:
-
-```js
-function ownRuleImplementation(arg) {
-  return "Failed Hello " + arg;
-}
-
-ownRuleImplementation.description = "This is just example";
-```
-
-> static `description` field could be also a function to get the same arguments as the check itself. Could be convenient for generic checks. (Check the `testPort.js` implementation in `/example`)
-
-When we put everything together we will get something like this:
-
-```js
-rules {
- "own-rule": [2, "World", ownRuleImplementation],
- ...
-}
-```
-
-In real world this rule always fails (with an error!) because we are returning `string` in the implementation. If we want to "pass" the check, let's return anything else.
-
-Every defined rule is automatically going to be checked. That means also rules you are extending from the `extends`. The rule name has to be unique in entire configuration. You can edit the rule definition on any level of the configuration, the more close to the root configuration you are the more weight the definition has. Thus you can easily disable the whole rule as is shown bellow:
-
-```js
-"yarn-version": 0, // disable rule; [0], "off", "disable" acts the same
-```
-
-or you can change severity of the rule to "warn" by
-
-```js
-"yarn-version": [1, { comparator: COMPARATORS.GT, version: "9" }],
-```
-
-## Make your own configuration
-
-Configuration is basically a JSON object which defines the rules. Check the `@envdoctor/envdoctor-config-essentials` implementation for example.
+Let's documentation could be found on http://jukben.github.io/envdoctor.
 
 Have you build something awesome? Let's share it with us.
-
-<!-- urls -->
-
-[envdoctor-core-version]: https://img.shields.io/npm/v/@envdoctor/core.svg?style=flat-square
-[envdoctor-core-package]: https://www.npmjs.com/package/@envdoctor/core
-[envdoctor-utils-version]: https://img.shields.io/npm/v/@envdoctor/utils.svg?style=flat-square
-[envdoctor-utils-package]: https://www.npmjs.com/package/@envdoctor/utils
-[envdoctor-config-essentials-version]: https://img.shields.io/npm/v/@envdoctor/envdoctor-config-essentials.svg?style=flat-square
-[envdoctor-config-essentials-package]: https://www.npmjs.com/package/@envdoctor/envdoctor-config-essentials
 
 ## Contributing
 
@@ -217,3 +76,12 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 ## License
 
 The MIT License (MIT) 2018 - Jakub Beneš
+
+<!-- urls -->
+
+[envdoctor-core-version]: https://img.shields.io/npm/v/@envdoctor/core.svg?style=flat-square
+[envdoctor-core-package]: https://www.npmjs.com/package/@envdoctor/core
+[envdoctor-utils-version]: https://img.shields.io/npm/v/@envdoctor/utils.svg?style=flat-square
+[envdoctor-utils-package]: https://www.npmjs.com/package/@envdoctor/utils
+[envdoctor-config-essentials-version]: https://img.shields.io/npm/v/@envdoctor/envdoctor-config-essentials.svg?style=flat-square
+[envdoctor-config-essentials-package]: https://www.npmjs.com/package/@envdoctor/envdoctor-config-essentials
