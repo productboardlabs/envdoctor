@@ -80,10 +80,22 @@ jobs:
           paths: .
   deploy-website:
     <<: *defaults
+    working_directory: ~/envdoctor/website
+    environment:
+      GIT_AUTHOR_NAME: Envdoctor
+      GIT_AUTHOR_EMAIL: jukben+envdoctor@gmail.com
+      GIT_COMMITTER_NAME: Envdoctor
+      GIT_COMMITTER_EMAIL: jukben+envdoctor@gmail.com
     steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "0b:78:b8:97:f2:8d:ad:38:87:2d:d5:c2:38:63:14:29"
+      - checkout
       - attach_workspace:
           at: ~/envdoctor
-      - run: GIT_USER=jukben CURRENT_BRANCH=master USE_SSH=true yarn run publish-gh-pages
+      - run: |
+          yarn --frozen-lockfile 
+          GIT_USER=jukben CURRENT_BRANCH=master USE_SSH=true yarn run publish-gh-pages
 
 workflows:
   version: 2
