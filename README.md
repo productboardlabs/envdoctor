@@ -46,7 +46,7 @@ or
 
 ### Documentation
 
-Let's documentation could be found on http://jukben.github.io/envdoctor.
+Documentation could be found at http://jukben.github.io/envdoctor.
 
 Have you build something awesome? Let's share it with us.
 
