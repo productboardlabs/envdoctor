@@ -20,8 +20,6 @@
 
 ## Introduction
 
-> ⚠️ This is very early stage of the project... but we're using this in [productboard](https://productboard.com) :)
-
 This is a framework for easy creation of a set of checks to ensure that environment is correctly set up.
 
 It's kind of like ESLint for your environment.
@@ -75,7 +73,7 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 
 ## License
 
-The MIT License (MIT) 2019
+The MIT License (MIT) 2019 productboard
 
 <!-- urls -->
 
