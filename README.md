@@ -44,7 +44,7 @@ or
 
 ### Documentation
 
-Documentation could be found at http://jukben.github.io/envdoctor.
+Documentation could be found at https://productboard-labs.github.io/envdoctor/.
 
 Have you build something awesome? Let's share it with us.
 
