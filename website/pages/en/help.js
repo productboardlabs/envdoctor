@@ -28,7 +28,7 @@ function Help(props) {
     },
     {
       content:
-        "Ask questions about the documentation and project. Found an bug? [Create an issue!](https://github.com/jukben/envdoctor/issues)",
+        "Ask questions about the documentation and project. Found an bug? [Create an issue!](https://github.com/productboard-labs/envdoctor/issues)",
       title: "Join the community"
     },
     {
