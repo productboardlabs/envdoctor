@@ -20,6 +20,8 @@
 
 ## Introduction
 
+> ⚠️ This is still very early stage of the project! Use on your onw risk
+
 This is a framework for easy creation of a set of checks to ensure that environment is correctly set up.
 
 It's kind of like ESLint for your environment.
