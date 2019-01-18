@@ -23,7 +23,7 @@ const users = [
 const siteConfig = {
   title: "envdoctor", // Title for your website.
   tagline: "the linter for you enviroment™",
-  url: "https://productboard-labs.github.io", // Your website URL
+  url: "https://productboardlabs.github.io", // Your website URL
   baseUrl: "/envdoctor/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
   //   url: 'https://facebook.github.io',
@@ -31,7 +31,7 @@ const siteConfig = {
 
   // Used for publishing and more
   projectName: "envdoctor",
-  organizationName: "productboard-labs",
+  organizationName: "productboardlabs",
   // For top-level user or org sites, the organization is still the same.
   // e.g., for the https://JoelMarcey.github.io site, it would be set like...
   //   organizationName: 'JoelMarcey'
@@ -45,7 +45,7 @@ const siteConfig = {
   // If you have users set above, you add it here:
   users,
 
-  editUrl: "https://github.com/productboard-labs/envdoctor/edit/master/docs/",
+  editUrl: "https://github.com/productboardlabs/envdoctor/edit/master/docs/",
 
   /* path to images for header/footer */
   headerIcon: "img/envdoctor.svg",
@@ -100,7 +100,7 @@ const siteConfig = {
 
   // You may provide arbitrary config keys to be used as needed by your
   // template. For example, if you need your repo's URL...
-  repoUrl: "https://github.com/productboard-labs/envdoctor"
+  repoUrl: "https://github.com/productboardlabs/envdoctor"
 };
 
 module.exports = siteConfig;
