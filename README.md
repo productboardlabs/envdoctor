@@ -3,8 +3,8 @@
  <p>the linter for you enviroment™</p>
 
 <p align="center">
-  <a href="https://codecov.io/gh/jukben/envdoctor"><img src="https://codecov.io/gh/jukben/envdoctor/branch/master/graph/badge.svg"></a>
-  <a href="https://circleci.com/gh/jukben/envdoctor"><img src="https://circleci.com/gh/jukben/envdoctor.svg?style=svg"></a>
+  <a href="https://codecov.io/gh/productboard-labs/envdoctor"><img src="https://codecov.io/gh/productboard-labs/envdoctor/branch/master/graph/badge.svg"></a>
+  <a href="https://circleci.com/gh/productboard-labs/envdoctor"><img src="https://circleci.com/gh/productboard-labs/envdoctor.svg?style=svg"></a>
   <img src="https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square">
 </p>
  
