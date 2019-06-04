@@ -22,7 +22,7 @@ const users = [
 
 const siteConfig = {
   title: "envdoctor", // Title for your website.
-  tagline: "the linter for you enviroment™",
+  tagline: "the linter for your enviroment™",
   url: "https://productboardlabs.github.io", // Your website URL
   baseUrl: "/envdoctor/", // Base URL for your project */
   // For github.io type URLs, you would set the url and baseUrl like:
