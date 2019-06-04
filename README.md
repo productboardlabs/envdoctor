@@ -1,6 +1,6 @@
 <div align="center">
  <img src="https://user-images.githubusercontent.com/8135252/48912582-4ff7ed80-ee76-11e8-8eb4-68ed699ea0c4.png" alt="Envdoctor" title="Envdoctor" width="300">
- <p>the linter for you enviroment™</p>
+ <p>the linter for your enviroment™</p>
 
 <p align="center">
   <a href="https://codecov.io/gh/productboardlabs/envdoctor"><img src="https://codecov.io/gh/productboardlabs/envdoctor/branch/master/graph/badge.svg"></a>
