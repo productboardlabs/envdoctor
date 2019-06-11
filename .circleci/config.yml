@@ -102,6 +102,9 @@ workflows:
   build:
     jobs:
       - install-dependencies
+          branches:
+              ignore:
+                - gh-pages
       - lint:
           requires:
             - install-dependencies
