@@ -101,8 +101,9 @@ workflows:
   version: 2
   build:
     jobs:
-      - install-dependencies
-          branches:
+      - install-dependencies:
+          filters:
+            branches:
               ignore:
                 - gh-pages
       - lint:
