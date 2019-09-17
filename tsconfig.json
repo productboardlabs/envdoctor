@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "lib": ["es7", "es2017.object"],
+    "lib": ["es2017"],
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "target": "es6",
+    "target": "es5",
     "sourceMap": false,
     "esModuleInterop": true
   },
