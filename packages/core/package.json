@@ -18,17 +18,17 @@
     "tsc:watch": "tsc --watch --preserveWatchOutput"
   },
   "dependencies": {
-    "chalk": "^2.4.1",
-    "cosmiconfig": "^5.0.7",
-    "dedent": "^0.7.0",
-    "minimist": "^1.2.0",
-    "ora": "^3.0.0",
-    "ramda": "^0.25.0",
-    "update-notifier": "^2.5.0"
+    "chalk": "2.4.2",
+    "cosmiconfig": "5.2.1",
+    "dedent": "0.7.0",
+    "minimist": "1.2.0",
+    "ora": "3.4.0",
+    "ramda": "0.26.1",
+    "update-notifier": "3.0.1"
   },
   "devDependencies": {
-    "@types/ramda": "^0.25.41",
-    "get-stream": "^4.1.0",
-    "strip-ansi": "^5.0.0"
+    "@types/ramda": "0.26.22",
+    "get-stream": "5.1.0",
+    "strip-ansi": "5.2.0"
   }
 }
