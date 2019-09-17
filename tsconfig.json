@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["es7", "es2017.object"],
     "module": "commonjs",
     "moduleResolution": "node",
     "declaration": true,
@@ -13,7 +14,7 @@
     "noUnusedParameters": true,
     "target": "es6",
     "sourceMap": false,
-    "lib": ["es7", "es2017.object"]
+    "esModuleInterop": true
   },
   "exclude": ["node_modules", "lib/", "**/*.spec.ts"]
 }

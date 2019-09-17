@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import * as updateNotifier from "update-notifier";
-import * as minimist from "minimist";
-import * as dedent from "dedent";
+import updateNotifier from "update-notifier";
+import minimist from "minimist";
+import dedent from "dedent";
 import runner from "./runner";
 import config from "./config";
 import reporter from "./utils/reporter";

@@ -5,6 +5,7 @@ module.exports = {
   },
   coveragePathIgnorePatterns: ["<rootDir>/__fixtures__"],
   moduleNameMapper: {
+    "@envdoctor/utils": "<rootDir>/packages/utils/src/index.ts",
     "^bad-package$": "<rootDir>/__fixtures__/packages/bad-package.js",
     "^example-package$": "<rootDir>/__fixtures__/packages/package.js",
     "^es6-package$": "<rootDir>/__fixtures__/packages/es6-package.js",
