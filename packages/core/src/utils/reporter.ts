@@ -1,5 +1,5 @@
 import chalk from "chalk";
-import * as dedent from "dedent";
+import dedent from "dedent";
 
 export default function reporter({
   report,

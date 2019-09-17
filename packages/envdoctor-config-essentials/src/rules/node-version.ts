@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import fs from "fs";
 import { exec, semver } from "@envdoctor/utils";
 import versionComparator, {
   IConfiguration as IVersionComparatorConfiguration

@@ -18,5 +18,8 @@
   "dependencies": {
     "execa": "2.0.4",
     "semver": "6.3.0"
+  },
+  "devDependencies": {
+    "@types/semver": "6.0.2"
   }
 }

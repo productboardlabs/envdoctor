@@ -1,6 +1,6 @@
 import { PassThrough as PassThroughStream } from "stream";
-import * as getStream from "get-stream";
-import * as stripAnsi from "strip-ansi";
+import getStream from "get-stream";
+import stripAnsi from "strip-ansi";
 
 import runner from "./runner";
 

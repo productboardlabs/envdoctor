@@ -1,4 +1,4 @@
-import * as Cosmiconfig from "cosmiconfig";
+import Cosmiconfig from "cosmiconfig";
 
 const cosmiconfig = Cosmiconfig("envdoctor");
 

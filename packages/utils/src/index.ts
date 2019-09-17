@@ -1,4 +1,4 @@
-import * as exec from "execa";
-import * as semver from "semver";
+import semver from "semver";
 
-export { exec, semver };
+export { default as exec } from "execa";
+export { semver };
