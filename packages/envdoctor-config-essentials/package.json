@@ -1,6 +1,6 @@
 {
   "name": "@envdoctor/envdoctor-config-essentials",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Essentials rules for Envdoctor",
   "license": "MIT",
   "author": "Jakub Benes <jukben@gmail.com>",
