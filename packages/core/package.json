@@ -21,7 +21,7 @@
     "chalk": "2.4.2",
     "cosmiconfig": "5.2.1",
     "dedent": "0.7.0",
-    "minimist": "1.2.3",
+    "minimist": "1.2.6",
     "ora": "3.4.0",
     "ramda": "0.26.1",
     "update-notifier": "3.0.1"
